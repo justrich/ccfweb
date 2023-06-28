@@ -31,7 +31,7 @@ copyright = "&copy;2023 Rich Horwood / Krystal-Kate Meacham<p>"
 
     # Image
     [params.visual.image]
-      enable = true
+      enable = false
       file = "images/background.jpg"
       position = "center center"
 
