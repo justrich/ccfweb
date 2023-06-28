@@ -1,0 +1,106 @@
+# Site settings
+baseURL = "https://cancerandcrossfit.com"
+languageCode = "en-US"
+title = "CancerAndCrossfit"
+theme = "hugo-split-theme"
+disableKinds = ["section", "taxonomy", "taxonomyTerm", "RSS", "sitemap"]
+
+# Local preview mode
+relativeURLs = true
+uglyURLs = true
+
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = "G-B8H38BNJS9"
+
+# Copyright
+copyright = "&copy;2023 Rich Horwood / Krystal-Kate Meacham<p>"
+
+[params]
+
+  # Metadata for search engines and social sharing
+  author = "Krystal-Kate Meacham & Rich Horwood"
+  description = "Cancer And Crossfit is a podcast discussing cancer, exercise as a form of symptom management, end of life care.  We attempt to break down stigma around cancer, death, dying and day-to-day living.  Crossfit is our exercise regimen of choice, but we have no direct connection to Crossfit, LLC."
+  shareImage = "images/social.jpg"
+  twitterHandle = "onepagelove"
+
+  # Favicon
+  favicon = "favicon.ico"
+
+  # Section - Visual
+  [params.visual]
+
+    # Image
+    [params.visual.image]
+      enable = true
+      file = "images/background.jpg"
+      position = "center center"
+
+    # Video
+    [params.visual.video]
+      enable = false
+      mute = true
+      file = "videos/background.mp4"
+      # youtubeId = "dk9uNWPP7EA"
+
+  # Links
+  #
+  # Links List #1
+  [[params.links]]
+    [params.links.list1]
+      heading = "Podcast"
+
+      [[params.links.list1.link]]
+        text = "Apple Music"
+        url = "https://www.apple.com/apple-podcasts/"
+        new_tab = true # new tab
+
+      [[params.links.list1.link]]
+        text = "Spotify"
+        url = "https://open.spotify.com/genre/podcasts-web"
+        new_tab = true # Default, open at same tab
+
+      [[params.links.list1.link]]
+        text = "Newsletter"
+        url = "#"
+
+  # Links List #2
+  [[params.links]]
+    [params.links.list2]
+      heading = "Instagram"
+
+      [[params.links.list2.link]]
+        text = "Krystal"
+        url = "https://instagram.com/cancerandcrossfit"
+        new_tab = true
+
+      [[params.links.list2.link]]
+        text = "Rich"
+        url = "https://instagram.com/rjhorwood"
+        new_tab = true
+
+      [[params.links.list2.link]]
+        text = "CFCP"
+        url = "https://instagram.com/crossfitchirnsidepark"
+        new_tab = true
+
+  # Links List #3
+  [[params.links]]
+    [params.links.list3]
+      heading = "Contact"
+
+      [[params.links.list3.link]]
+        text = "Krystal"
+        url = "contact/krystal.html"
+
+      [[params.links.list3.link]]
+        text = "Rich"
+        url = "contact/rich.html"
+
+      [[params.links.list3.link]]
+        text = "Enquiries"
+        url = "contact/form.html"
+
+  # The original template is released under the Creative Commons Attribution 3.0 License.
+  # Please keep the original attribution link when using for your own project.
+  # If you'd like to use the template without the attribution, you can check out
+  # the license option via the template author's website: https://onepagelove.com/split

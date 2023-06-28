@@ -1,0 +1,17 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[submodule "themes/hugo-split-theme"]
+	url = https://github.com/escalate/hugo-split-theme.git
+	active = true
+[remote "origin"]
+	url = git@github.com:justrich/ccfweb.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+	rebase = true
