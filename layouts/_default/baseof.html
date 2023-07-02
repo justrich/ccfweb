@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+
+<head>
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3393ebc46d05a8d887b20c502/e86fab8c8125773c6c76bb731.js");</script>
+  {{ partial "head" . }}
+</head>
+
+<body id="fullsingle" class="page-template-page-fullsingle-split">
+
+  <div class="fs-split">
+
+    <!-- Image -->
+    {{ if .Site.Params.visual.image.enable }}
+
+      <div class="split-image">
+
+      </div>
+
+    <!-- Video -->
+    {{ else if .Site.Params.visual.video.enable }}
+
+      {{ partial "video" . }}
+
+    {{ end }}
+
+    <!-- Content Side -->
+    <div class="split-content">
+      <div class="split-content-vertically-center">
+        <!-- Intro -->
+        {{ partial "intro" . }}
+
+        <!-- Main -->
+        {{ block "main" .  }}
+          <!-- Bio -->
+          {{ partial "bio" . }}
+        {{ end }}
+
+        <!-- Footer -->
+        {{ partial "footer" . }}
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

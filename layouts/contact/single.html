@@ -1,0 +1,29 @@
+{{ define "main" }}
+<form method="POST" accept-charset="UTF-8" id="form">
+    <input type="email" name="email" placeholder="Your email">
+    <input type="text" name="full-name" placeholder="Your name">
+    <!-- add hidden Honeypot input to prevent spams -->
+    <input type="hidden" name="_gotcha" style="display:none !important">
+    <button type="submit">Send</button>
+</form>
+
+<script>
+    const form = document.getElementById("form");
+    form.addEventListener("submit", formSubmit);
+
+    function formSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+
+        fetch("https://getform.io/f/e31ad031-f3ca-46ed-baf1-a6226463af3f", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json",
+            },
+        })
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
+    }
+</script>
+{{ end }}
