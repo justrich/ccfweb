@@ -13,12 +13,12 @@ uglyURLs = true
 googleAnalytics = "G-B69FM01F7W"
 
 # Copyright
-copyright = "&copy;2023 Rich Horwood / Krystal-Kate Meacham<p>"
+copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@cancerandcrossfit.com\">podcast@cancerandcrossfit.com</a><p>"
 
 [params]
 
   # Metadata for search engines and social sharing
-  author = "Krystal-Kate Meacham & Rich Horwood"
+  author = "Krystal & Rich"
   description = "Cancer And Crossfit is a podcast discussing cancer, exercise as a form of symptom management, end of life care.  We attempt to break down stigma around cancer, death, dying and day-to-day living.  Crossfit is our exercise regimen of choice, but we have no direct connection to Crossfit, LLC."
   shareImage = "images/social.jpg"
   twitterHandle = "onepagelove"
@@ -47,58 +47,58 @@ copyright = "&copy;2023 Rich Horwood / Krystal-Kate Meacham<p>"
   # Links List #1
   [[params.links]]
     [params.links.list1]
-      heading = "Podcast"
+      heading = "Podcast Links"
 
       [[params.links.list1.link]]
         text = "Apple Music"
-        url = "https://www.apple.com/apple-podcasts/"
+        url = "https://podcasts.apple.com/us/podcast/cancer-and-crossfit/id1700042264"
         new_tab = true # new tab
 
       [[params.links.list1.link]]
         text = "Spotify"
-        url = "https://open.spotify.com/genre/podcasts-web"
+        url = "https://open.spotify.com/show/2rhy4IR1lz3ZGeGTtnqotR"
         new_tab = true # Default, open at same tab
 
       [[params.links.list1.link]]
-        text = "Newsletter"
-        url = "#"
+        text = "iHeart Radio"
+        url = "https://www.iheart.com/podcast/269-cancer-and-crossfit-119852051/"
 
   # Links List #2
   [[params.links]]
     [params.links.list2]
-      heading = "Instagram"
+      heading = "More Podcast links"
 
       [[params.links.list2.link]]
-        text = "Krystal"
-        url = "https://instagram.com/cancerandcrossfit"
+        text = "Google Podcasts"
+        url = "#pending"
         new_tab = true
 
       [[params.links.list2.link]]
-        text = "Rich"
-        url = "https://instagram.com/rjhorwood"
+        text = "Amazon Music"
+        url = "https://music.amazon.com/podcasts/03eb3512-e5e7-4c99-a42d-665cb36ad77c/cancer-and-crossfit"
         new_tab = true
 
       [[params.links.list2.link]]
-        text = "CFCP"
-        url = "https://instagram.com/crossfitchirnsidepark"
+        text = "Castbox"
+        url = "https://castbox.fm/channel/id5534292"
         new_tab = true
 
   # Links List #3
   [[params.links]]
     [params.links.list3]
-      heading = "Contact"
+      heading = "Socials"
 
       [[params.links.list3.link]]
         text = "Krystal"
-        url = "contact/krystal.html"
+        url = "https://instagram.com/cancerandcrossfit"
 
       [[params.links.list3.link]]
         text = "Rich"
-        url = "contact/rich.html"
+        url = "https://instagram.com/rjhorwood"
 
       [[params.links.list3.link]]
-        text = "Enquiries"
-        url = "contact/form.html"
+        text = "CFCP"
+        url = "https://instagram.com/crossfitchirnsidepark"
 
   # The original template is released under the Creative Commons Attribution 3.0 License.
   # Please keep the original attribution link when using for your own project.
