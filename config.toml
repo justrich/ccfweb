@@ -70,7 +70,7 @@ copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@canc
 
       [[params.links.list2.link]]
         text = "Google Podcasts"
-        url = "#pending"
+        url = "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9lNjg5MmE4OC9wb2RjYXN0L3Jzcw"
         new_tab = true
 
       [[params.links.list2.link]]
