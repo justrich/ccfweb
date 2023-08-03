@@ -5,6 +5,8 @@ title = "CancerAndCrossfit"
 theme = "hugo-split-theme"
 disableKinds = ["section", "taxonomy", "taxonomyTerm", "RSS", "sitemap"]
 
+# Logo color currently: #352748
+
 # Local preview mode
 relativeURLs = true
 uglyURLs = true
