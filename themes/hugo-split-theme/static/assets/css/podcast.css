@@ -32,10 +32,13 @@
 .episodelist {
     margin: 10px;
 }
+.episode-link a,
 .episodelist a,
 .disclaimer a {
     color: #848d96;
 }
+
+.episode-link a:hover,
 .episodelist a:hover,
 .disclaimer a:hover {
     color: #CCCCCC;
@@ -65,6 +68,13 @@
 .split-credit {
     opacity: 0.4;
     font-size: 14px;
+}
+
+.episode-link {
+    font-size: 0.8em;
+}
+.episode-link a {
+
 }
 
 .disclaimer {
