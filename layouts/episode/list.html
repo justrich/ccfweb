@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+<h3>Available Episodes:</h3>
+<div class="episodelist">
+<ul class="episodes">
+    {{ range (where .Data.Pages "Section" "episode").Reverse }}
+    <li><div title="{{ .Params.date.UTC  }}">
+        <a href="{{ .Permalink }}">{{ .Title }} - {{ .Params.tagline }}<a>.
+        </div>
+    </li>
+    {{ end }}
+</ul>
+</div>
+{{ end }}

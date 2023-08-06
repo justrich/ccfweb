@@ -1,11 +1,16 @@
 # Site settings
 baseURL = "https://cancerandcrossfit.com"
 languageCode = "en-US"
-title = "CancerAndCrossfit"
+title = "Cancer and Crossfit"
 theme = "hugo-split-theme"
-disableKinds = ["section", "taxonomy", "taxonomyTerm", "RSS", "sitemap"]
+#disableKinds = ["section", "taxonomy", "taxonomyTerm", "RSS", "sitemap"]
 
-# Logo color currently: #352748
+[contentTypes]
+  [contentTypes.episode]
+  name = "episodes"
+  plural = "episodes"
+  singular = "episode"
+  layout = "layouts/episode"
 
 # Local preview mode
 relativeURLs = true
