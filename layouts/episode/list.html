@@ -4,7 +4,7 @@
 <div class="episodelist">
 <ul class="episodes">
     {{ range (where .Data.Pages "Section" "episode").Reverse }}
-    <li><div title="{{ .Params.date.UTC  }}">
+    <li><div title="{{ .Params.date }}">
         <a href="{{ .Permalink }}">{{ .Title }} - {{ .Params.tagline }}<a>.
         </div>
     </li>
