@@ -43,7 +43,7 @@ copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@canc
     # Image
     [params.visual.image]
       enable = true
-      file = "Logo.png"
+      file = "Logo.svg"
 #      position = "center center"
 
     # Video
