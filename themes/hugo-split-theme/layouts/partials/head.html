@@ -31,12 +31,24 @@
 {{ if .Site.Params.custom.css.enable }}
 <link rel="stylesheet" href="{{ "css/style.css" | absURL }}" type="text/css" media="screen" />
 {{ end }}
-
+{{ partial "favico" . }}
 <!-- Image Styles -->
 {{ if .Site.Params.visual.image.enable }}
   <style>
   {{ if .Site.Params.visual.image.file }}
-    .fs-split .split-image { background-image: url("{{ .Site.Params.visual.image.file | absURL }}"); background-position: {{ if .Site.Params.visual.image.position }}{{ .Site.Params.visual.image.position }}{{ else }}center center{{ end }}; }
+    .fs-split .split-image {
+      width: 100%;
+      height: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      background-image: url("{{ .Site.Params.visual.image.file | absURL }}");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: {{ if .Site.Params.visual.image.position }}{{ .Site.Params.visual.image.position }}{{ else }}center center{{ end }};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   {{ end }}
   </style>
 {{ end }}

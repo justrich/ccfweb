@@ -1,0 +1,13 @@
+{{ $bc := resources.Get "browserconfig.xml" }}
+{{ $bcURL := "browserconfig.xml" }}
+{{ $bc = $bc | resources.ExecuteAsTemplate $bcURL . }}
+<!-- favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "ico/apple-touch-icon.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "ico/favicon-32x32.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "ico/favicon-16x16.png" | absURL }}">
+<link rel="manifest" href="{{ "ico/site.webmanifest" | absURL }}">
+<link rel="mask-icon" href="{{ "ico/safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
+<meta name="msapplication-TileColor" content="{{ .Site.Params.favico.tile_color | default "#da532c" }}">
+<meta name="theme-color" content="#ffffff">
+<meta name="msapplication-config" content="{{ $bc.RelPermalink }}" />
+<!-- /favicon -->

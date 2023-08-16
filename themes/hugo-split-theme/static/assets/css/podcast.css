@@ -32,12 +32,14 @@
 .episodelist {
     margin: 10px;
 }
+.baseurl a,
 .episode-link a,
 .episodelist a,
 .disclaimer a {
     color: #848d96;
 }
 
+.baseurl a:hover,
 .episode-link a:hover,
 .episodelist a:hover,
 .disclaimer a:hover {
@@ -70,6 +72,7 @@
     font-size: 14px;
 }
 
+.baseurl,
 .episode-link {
     font-size: 0.8em;
 }

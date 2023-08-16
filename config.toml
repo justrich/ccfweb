@@ -3,7 +3,8 @@ baseURL = "https://cancerandcrossfit.com"
 languageCode = "en-US"
 title = "Cancer and Crossfit"
 theme = "hugo-split-theme"
-#disableKinds = ["section", "taxonomy", "taxonomyTerm", "RSS", "sitemap"]
+disableKinds = [ "taxonomy", "taxonomyTerm"  ]
+enableRobotsTXT = true
 
 [contentTypes]
   [contentTypes.episode]
@@ -31,23 +32,26 @@ copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@canc
   twitterHandle = "onepagelove"
 
   # Favicon
-  favicon = "favicon.ico"
+  [params.favico]
+  # Tile color for MS browsers, eg:
+  # browserconfig.xml
+  tile_color = "#DA532C"
 
   # Section - Visual
   [params.visual]
 
     # Image
     [params.visual.image]
-      enable = false
-      file = "images/background.jpg"
-      position = "center center"
+      enable = true
+      file = "Logo.png"
+#      position = "center center"
 
     # Video
     [params.visual.video]
       enable = false
       mute = true
-      file = "videos/background.mp4"
-      # youtubeId = "dk9uNWPP7EA"
+      file = "/videos/square-out.mp4"
+#      youtubeId = "Hd_ptbiPoXM"
 
   # Links
   #
