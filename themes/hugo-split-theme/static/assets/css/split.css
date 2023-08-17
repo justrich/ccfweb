@@ -118,11 +118,11 @@ body.page-template-page-fullsingle-split {
   font-size: 21px;
   line-height: 33px;
   letter-spacing: -0.2px;
-  color: #848d96;
+  color: #dcddde;
   animation: fadein 2s;
 }
 body.page-template-page-fullsingle-split p {
-  color: #848d96;
+  color: #b1b3b6;
 }
 
 .fs-split {
@@ -191,7 +191,7 @@ body.page-template-page-fullsingle-split p {
   line-height: 16px;
   margin-bottom: 40px;
   letter-spacing: 0.4px;
-  color: #47bec7;
+  color: #ab94c6;
 }
 .split-intro .tagline {
   color: #CCCCCC;
@@ -341,7 +341,7 @@ body.page-template-page-fullsingle-split p {
   font-size: 11px;
   line-height: 11px;
   margin-bottom: 31px;
-  color: #848d96;
+  color: #ab94c6;
   letter-spacing: 2px;
   opacity: 0.5;
 }
@@ -351,11 +351,12 @@ body.page-template-page-fullsingle-split p {
   margin-bottom: 12px;
 }
 .split-lists .split-list ul li a {
-  color: #848d96;
+  /*color: #848d96;*/
+  color: #8a8c8e;
   transition-duration: 0.5s;
 }
 .split-lists .split-list ul li a:hover {
-  color: #CA486d;
+  color: #ab94c6;
   transition-duration: 0.1s;
 }
 
