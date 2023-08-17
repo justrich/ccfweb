@@ -19,6 +19,8 @@ or links mentioned in the episode**
 #### Listen to episode:
 {{/*
 Grab the URL from the embed code on the spotify for podcasters dashboard.
-EG: Episode 1 is "Cancer-and-Crossfit-Introduction-e27gof6/a-aa68b36"
+EG: Episode 1 is "Cancer-and-Crossfit-Introduction-e27gof6"
 */}}
-{{<iframe "Cancer-and-Crossfit-someepisodetitle-xxxxxx/a-xxxxxxx">}}
+{{<iframe "Cancer-and-Crossfit-someepisodetitle-xxxxxx">}}
+
+{{<episodelist>}}

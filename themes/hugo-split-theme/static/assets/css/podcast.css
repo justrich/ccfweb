@@ -3,6 +3,10 @@
     font-family: "Filson Pro", Inter, Helvetica, Arial, sans-serif;
 }
 
+.podcast-episode .split-bio a {
+    border-bottom: none;
+}
+
 .podcast-episode p,
 .podcast-episode ul {
     font-size: 0.9em;
@@ -10,7 +14,7 @@
 }
 
 .podcast-episode h2 {
-    font-size: 1.1em;
+    font-size: 0.9em;
     font-weight: bold;
 }
 
@@ -18,15 +22,15 @@
     font-size: 0.7em;
 }
 .podcast-episode h3 {
-    font-size: 1.3em;
+    font-size: 0.8em;
     font-family: "Filson Pro", sans-serif;
     text-transform: uppercase;
     font-weight: bold;
-    color: #b1b3b6;
+    color: #FFFFFF;
 }
 
 .podcast-episode h4 {
-    font-size: 1.0em;
+    font-size: 0.7em;
     font-weight: bold;
 }
 
@@ -37,7 +41,7 @@
 .episode-link a,
 .episodelist a,
 .disclaimer a {
-    color: #848d96;
+    color: #b1bdb6;
 }
 
 .baseurl a:hover,
@@ -45,6 +49,21 @@
 .episodelist a:hover,
 .disclaimer a:hover {
     color: #CCCCCC;
+    text-decoration: none;
+}
+
+.episode-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    padding-left: 15px;
+}
+.episode-item::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .episodes li {
@@ -78,7 +97,8 @@
     font-size: 0.8em;
 }
 .episode-link a {
-
+    cursor: pointer;
+    /*text-decoration: #848d96 dashed;*/
 }
 
 .disclaimer {

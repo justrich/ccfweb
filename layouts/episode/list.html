@@ -1,11 +1,13 @@
 {{ define "main" }}
-
+{{ $episodes := where .Site.RegularPages "Type" "episode" }}
+{{ $sortedEpisodes := sort $episodes "Date" }}
 <h3>Available Episodes:</h3>
 <div class="episodelist">
 <ul class="episodes">
-    {{ range (where .Data.Pages "Section" "episode").Reverse }}
-    <li><div title="{{ .Params.date }}">
-        <a href="{{ .RelPermalink }}">{{ .Title }} - {{ .Params.tagline }}<a>.
+    {{ range $index, $episode := $sortedEpisodes }}
+    {{ $episodeNumber := add ($index | add 0) 1 }}
+    <li><div class="episode-item" title="{{ dateFormat "02 Jan 2006" .Params.date }} - {{ .Params.tagline }}">
+        <a href="{{ .RelPermalink }}">{{ .Params.Title }} - {{ .Params.tagline }}<a>.
         </div>
     </li>
     {{ end }}
