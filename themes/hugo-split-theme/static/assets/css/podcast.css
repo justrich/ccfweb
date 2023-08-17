@@ -1,6 +1,6 @@
 /* Override the defaults for this theme */
 .split-bio {
-    font-family: Inter, Helvetica, Arial, sans-serif;
+    font-family: "Filson Pro", Inter, Helvetica, Arial, sans-serif;
 }
 
 .podcast-episode p,
@@ -19,7 +19,7 @@
 }
 .podcast-episode h3 {
     font-size: 1.3em;
-    font-family: sans-serif;
+    font-family: "Filson Pro", sans-serif;
     text-transform: uppercase;
     font-weight: bold;
     color: #b1b3b6;

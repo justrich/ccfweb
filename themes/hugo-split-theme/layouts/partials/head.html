@@ -28,6 +28,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 </style>
+{{ partial "customfont" . }}
 {{ if .Site.Params.custom.css.enable }}
 <link rel="stylesheet" href="{{ "css/style.css" | absURL }}" type="text/css" media="screen" />
 {{ end }}
