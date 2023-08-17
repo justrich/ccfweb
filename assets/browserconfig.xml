@@ -2,7 +2,7 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="{{ "ico/mstile-150x150.png" | absURL }}"/>
+            <square150x150logo src="{{ "ico/mstile-150x150.png" | relURL }}"/>
             <TileColor>{{ .Site.Params.favico.tile_color | default "#da532c" }}</TileColor>
         </tile>
     </msapplication>

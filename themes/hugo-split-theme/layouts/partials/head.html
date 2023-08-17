@@ -42,7 +42,7 @@
       height: 100%;
       max-width: 666px;
       margin: 0 auto;
-      background-image: url("{{ .Site.Params.visual.image.file | absURL }}");
+      background-image: url("{{ .Site.Params.visual.image.file | relURL }}");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: {{ if .Site.Params.visual.image.position }}{{ .Site.Params.visual.image.position }}{{ else }}center center{{ end }};
