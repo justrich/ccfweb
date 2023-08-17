@@ -4,11 +4,13 @@
     {{ range $key, $list := $value }}
 
     {{ if $list.link }}
-      <div class="split-list">
+      <div class="split-list" {{ with $key }} id="{{ . }}" {{ end }}>
         <h3>{{ $list.heading }}</h3>
         <ul>
           {{ range $list.link }}
-            <li><a href="{{ .url | safeURL }}" title="{{ .text }}" target="{{ cond (.new_tab | default false) "_blank" "_self" }}">{{ .text }}</a></li>
+            <li><div class="split-list-item">
+              <a href="{{ .url | safeURL }}" title="{{ .text }}" target="{{ cond (.new_tab | default false) "_blank" "_self" }}">{{ .text }}</a>
+            </div></li>
           {{ end }}
         </ul>
       </div>

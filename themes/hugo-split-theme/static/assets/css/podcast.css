@@ -90,6 +90,10 @@
 .split-credit {
     opacity: 0.4;
     font-size: 14px;
+    padding-top: 15px;
+}
+.split-credit p {
+    padding-top: 5px;
 }
 
 .baseurl,
@@ -98,7 +102,6 @@
 }
 .episode-link a {
     cursor: pointer;
-    /*text-decoration: #848d96 dashed;*/
 }
 
 .disclaimer {
@@ -106,4 +109,29 @@
     font-size: 12px;
     line-height: 18px;
     font-weight: bold;
+}
+
+.split-list#list3 .split-list-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    padding-left: 20px;
+}
+.split-list#list3 .split-list-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 10px;
+    height: 10px;
+    background-image: url('/img/insta.svg');
+    background-size: cover;
+}
+
+/* Looks like ass under 1400px wide */
+@media (max-width: 1400px) {
+    .split-list#list2 {
+        display: none;
+    }
 }
