@@ -18,12 +18,6 @@
     padding: 0;
 }
 
-/*.navigation li:first-child::before {*/
-/*    content: "|";*/
-/*    margin-right: 10px;*/
-/*    opacity: 0.5;*/
-/*    color: #8a8c8e;*/
-/*}*/
 .navigation li:not(:first-child)::before {
   content: "|";
   color: #8a8c8e;
@@ -31,10 +25,12 @@
   margin-right: 5px;
 }
 
+
+
 .navigation li {
     margin: 0;
     padding: 10px;
-    font-size: 0.7em;
+    font-size: 0.6em;
 }
 
 .navigation li a {
@@ -45,12 +41,20 @@
     content: "▶";
     margin-right: 10px;
     opacity: 0.0;
-
 }
+
 .navigation li a:hover::before {
     content: "▶";
     margin-right: 10px;
     opacity: 0.5;
+}
+
+@media screen and (max-width: 800px) {
+    .navigation li a::before,
+    .navigation li a:hover::before {
+        content: "";
+        margin-right: 0;
+   }
 }
 
 .navigation li a:active {
@@ -67,6 +71,19 @@
     pointer-events: none;
     color: #4e386d;
 }
+
+/* Looks like ass under 1400px wide */
+@media (max-width: 900px) {
+    .navigation {
+        width: 100%;
+    }
+    .navigation li {
+        margin: 0
+        padding: 4pe;
+        font-size: 0.4em;
+    }
+}
+
 /* end navbar */
 
 .latest-episode-to-detail {

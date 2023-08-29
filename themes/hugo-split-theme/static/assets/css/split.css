@@ -210,6 +210,15 @@ body.page-template-page-fullsingle-split p {
   .split-bio {
     padding: 20px 0 0 0;
   }
+  .split-intro h1 {
+    font-size: 8px;
+    line-height: 8px;
+  }
+
+  .split-intro h2 {
+    font-size: 0.6em;
+    line-height: 1.1em;
+  }
 }
 .split-bio p {
   color: #848d96;
