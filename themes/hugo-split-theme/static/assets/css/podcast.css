@@ -49,7 +49,7 @@
     opacity: 0.5;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 767px) {
     .navigation li a::before,
     .navigation li a:hover::before {
         content: "";
@@ -72,8 +72,7 @@
     color: #4e386d;
 }
 
-/* Looks like ass under 1400px wide */
-@media (max-width: 900px) {
+@media (max-width: 767px) {
     .navigation {
         width: 100%;
     }
@@ -81,6 +80,13 @@
         margin: 0
         padding: 4pe;
         font-size: 0.4em;
+    }
+}
+
+/* Typical mobile, no navbar at all */
+@media screen and (max-width: 767px) {
+    .navigation {
+        display: none;
     }
 }
 
