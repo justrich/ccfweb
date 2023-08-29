@@ -49,7 +49,7 @@
     opacity: 0.5;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .navigation li a::before,
     .navigation li a:hover::before {
         content: "";
