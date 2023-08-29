@@ -1,3 +1,7 @@
 <div class="split-bio">
+  {{ if not .IsHome }}
   {{ .Content }}
+  {{ else }}
+  {{ partial "latestepisode" . }}
+  {{ end }}
 </div>

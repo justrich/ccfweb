@@ -1,16 +1,23 @@
 {{ define "main" }}
-{{ $episodes := where .Site.RegularPages "Type" "episode" }}
-{{ $sortedEpisodes := sort $episodes "Date" }}
-<h3>Available Episodes:</h3>
+<main>
+<div class="podcast-episode">
+    <article>
+        <header>
+        </header>
+        {{ .Content }}
+    </article>
 <div class="episodelist">
-<ul class="episodes">
-    {{ range $index, $episode := $sortedEpisodes }}
-    {{ $episodeNumber := add ($index | add 0) 1 }}
-    <li><div class="episode-item" title="{{ dateFormat "02 Jan 2006" .Params.date }} - {{ .Params.tagline }}">
-        <a href="{{ .RelPermalink }}">{{ .Params.Title }} - {{ .Params.tagline }}<a>.
-        </div>
-    </li>
+    <ol class="episodes">
+        {{ range sort .Pages "Date" }}
+        {{ $episodeNumber := index ( findRE `([1-9]+\d*)$` .Params.Title ) 0 }}
+        <li value="{{ $episodeNumber }}">
+            <div class="episode-item" title="{{ dateFormat "02 Jan 2006" .Params.date }} - {{ .Params.tagline }}">
+                <a href="{{ .RelPermalink }}">{{ .Params.tagline }}</a>
+            </div>
+        </li>
     {{ end }}
-</ul>
+    </ol>
 </div>
+</div>
+</main>
 {{ end }}

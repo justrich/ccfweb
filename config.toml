@@ -3,12 +3,12 @@ baseURL = "https://cancerandcrossfit.com"
 languageCode = "en-US"
 title = "Cancer and Crossfit"
 theme = "hugo-split-theme"
-disableKinds = [ "taxonomy", "taxonomyTerm"  ]
+disableKinds = [ "taxonomy", "taxonomy"  ]
 enableRobotsTXT = true
 
 [contentTypes]
   [contentTypes.episode]
-  name = "episodes"
+  name = "episode"
   plural = "episodes"
   singular = "episode"
   layout = "layouts/episode"

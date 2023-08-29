@@ -1,0 +1,28 @@
+{{ $about := (.Site.GetPage "section" "about").RelPermalink }}
+{{ $home := .Site.Home.RelPermalink }}
+{{ $eplist := (.Site.GetPage "section" "episode").RelPermalink }}
+{{ $disclaimer := (.Site.GetPage "section" "disclaimer").RelPermalink }}
+<div class="navigation">
+    <ul>
+{{ if .IsHome }}
+    <li id="home"><a id="current" href="{{ $home }}">Home</a></li>
+{{ else }}
+    <li id="home"><a href="{{ $home }}">Home</a></li>
+{{ end }}
+{{ if eq .RelPermalink $eplist }}
+    <li id="episodelist"><a id="current" href="{{ $eplist }}">Episode List</a></li>
+{{ else }}
+    <li id="episodelist"><a href="{{ $eplist }}">Episode List</a></li>
+{{ end }}
+{{ if eq .RelPermalink $about }}
+    <li id="about"><a id="current" href="{{ $about }}">About Us</a>
+{{ else }}
+    <li id="about"><a href="{{ $about }}">About Us</a>
+{{ end }}
+{{ if eq .RelPermalink $disclaimer }}
+    <li id="disclaimer"><a id="current" href="{{ $disclaimer }}">Content Disclaimer</a></li>
+{{ else }}
+    <li id="disclaimer"><a href="{{ $disclaimer }}">Content Disclaimer</a></li>
+{{ end }}
+    </ul>
+</div>

@@ -1,0 +1,25 @@
+{{ $recentEpisodes := where .Site.RegularPages "Type" "episode" }}
+{{ $latestEpisode :=  $recentEpisodes.ByDate.Reverse.ByParam "released" | last 1 }}
+<div class="latest-episode">
+  <div class="latest-episode-summary">
+    <div class="mostrecentepisode">Most Recent Episode:</div>
+{{ with index $latestEpisode 0 }}
+  {{ $episodeNumber := index ( findRE `([1-9]+\d*)$` .Params.Title ) 0 }}
+  {{/*
+    Grab just the episode summary from the markdown document.
+
+    Note that if the header ever changes from "Episode summary:" this will
+    inevitably break.
+  */}}
+  <h4>Episode {{ $episodeNumber }}: {{ .Params.Tagline }}</h4>
+    {{ index ( split ( index (split .RawContent "##") 1 ) "\n\n" ) 1 }}
+
+    <div class="latest-episode-to-detail">
+    <a href="{{ .RelPermalink }}">See full episode details</a>
+    </div>
+
+  <div class="podcast-embed-homepage">
+    {{ partial "iframe" . }}
+  </div>
+{{ end }}
+</div>

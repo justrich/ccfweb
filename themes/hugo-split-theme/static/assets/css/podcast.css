@@ -2,25 +2,116 @@
 .split-bio {
     font-family: "Filson Pro", Inter, Helvetica, Arial, sans-serif;
 }
-
-.podcast-episode .split-bio a {
+.split-bio a {
     border-bottom: none;
 }
 
+.split-content-vertically-center {
+    padding: 0px;
+    width: 100%;
+}
+
+/* Navbar */
+.navigation ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+/*.navigation li:first-child::before {*/
+/*    content: "|";*/
+/*    margin-right: 10px;*/
+/*    opacity: 0.5;*/
+/*    color: #8a8c8e;*/
+/*}*/
+.navigation li:not(:first-child)::before {
+  content: "|";
+  color: #8a8c8e;
+  opacity: 0.5;
+  margin-right: 5px;
+}
+
+.navigation li {
+    margin: 0;
+    padding: 10px;
+    font-size: 0.7em;
+}
+
+.navigation li a {
+    color: #dcddde;
+}
+
+.navigation li a::before {
+    content: "▶";
+    margin-right: 10px;
+    opacity: 0.0;
+
+}
+.navigation li a:hover::before {
+    content: "▶";
+    margin-right: 10px;
+    opacity: 0.5;
+}
+
+.navigation li a:active {
+    text-decoration: underline;
+}
+
+.navigation a#current::before {
+    content: "▶";
+    margin-right: 10px;
+    opacity: 0.5;
+    color: #4e386d;
+}
+.navigation a#current {
+    pointer-events: none;
+    color: #4e386d;
+}
+/* end navbar */
+
+.latest-episode-to-detail {
+    padding-top: 10px;
+}
+
+.listenonspotify,
+.mostrecentepisode {
+    opacity: 0.6;
+    padding-bottom: 1.5rem;
+}
+.podcast-embed-homepage {
+    margin-top: 20px;
+}
+.podcast-episode .split-bio a {
+    border-bottom: none;
+}
 .podcast-episode p,
 .podcast-episode ul {
     font-size: 0.9em;
     text-align: justify-all;
 }
 
+/* Paragraphs in the podcast summary may have multiple
+headings, so space them out a bit more nicely.
+ */
+.split-content-vertically-center#episodelist .split-bio p {
+    padding-bottom: 0.6em;
+}
+
 .podcast-episode h2 {
+    padding-top: 20px;
     font-size: 0.9em;
     font-weight: bold;
 }
+.podcast-episode .split-intro h2 {
+    font-size: 0.8em;
+    margin-top: 20px;
+}
 
-.podcast-episode .split-intro h1 {
+.podcast-episode .split-intro h3 {
+    margin-top: 20px;
     font-size: 0.7em;
 }
+
 .podcast-episode h3 {
     font-size: 0.8em;
     font-family: "Filson Pro", sans-serif;
@@ -28,47 +119,76 @@
     font-weight: bold;
     color: #FFFFFF;
 }
-
 .podcast-episode h4 {
     font-size: 0.7em;
     font-weight: bold;
 }
 
 .episodelist {
-    margin: 10px;
+    margin: 20px 0px 20px 30px;
+    width: 100%;
 }
+
 .baseurl a,
 .episode-link a,
 .episodelist a,
 .disclaimer a {
     color: #b1bdb6;
+    text-decoration: none;
 }
 
+.navigation li a:hover,
 .baseurl a:hover,
 .episode-link a:hover,
 .episodelist a:hover,
 .disclaimer a:hover {
-    color: #CCCCCC;
     text-decoration: none;
+    color: #8a8c8e;
 }
 
-.episode-item {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    position: relative;
-    padding-left: 15px;
-}
-.episode-item::before {
-    content: '\2022';
-    position: absolute;
-    left: 0;
-    top: 0;
+.episodes {
+    list-style-type: upper-roman;
 }
 
-.episodes li {
-    padding: 10px;
-    list-style: square;
+hr.episodemeta-separator {
+    opacity: 0.2;
+    color: #878d96;
+}
+hr#top.episodemeta-separator {
+    margin-bottom: 1rem;
+}
+hr#bottom.episodemeta-separator {
+    margin-top: 1rem;
+}
+
+.episodemeta-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table.episode-meta-table {
+    border-collapse: collapse;
+    font-size: 0.7rem;
+    /*line-height: 15px;*/
+    border-spacing: 0px;
+}
+
+table.episode-meta-table td.heading {
+    padding-right: 10px;
+}
+
+table.episode-meta-table thead {
+    font-width: bold;
+    text-align: center;
+    display: none;
+}
+table.episode-meta-table tr {
+    line-height: 1.2rem;
+}
+
+table.episode-meta-table tr.release-pending {
+    font-style: italic;
+    text-align: center;
 }
 
 .podcast-embed {
@@ -85,6 +205,11 @@
     border: none;
     margin: 0;
     padding: 0;
+}
+
+.embed-inner-placeholder {
+    font-style: italic;
+    opacity: 0.4;
 }
 
 .split-credit {
@@ -127,6 +252,10 @@
     height: 10px;
     background-image: url('/img/insta.svg');
     background-size: cover;
+}
+
+body > div > div.split-content > div > div.split-bio > p {
+    padding: 10px 0px 10px 0px;
 }
 
 /* Looks like ass under 1400px wide */

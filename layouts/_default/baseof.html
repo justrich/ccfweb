@@ -2,7 +2,6 @@
 <html lang="{{ .Site.LanguageCode | default "en-us" }}">
 
 <head>
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3393ebc46d05a8d887b20c502/e86fab8c8125773c6c76bb731.js");</script>
   {{ partial "head" . }}
 </head>
 
@@ -34,7 +33,10 @@
           <!-- Bio -->
           {{ partial "bio" . }}
         {{ end }}
-
+        <!-- Podcast / social links defined on config.toml -->
+        {{ partial "links" . }}
+        <!-- Navigation links -->
+        {{ partial "navigation" . }}
         <!-- Footer -->
         {{ partial "footer" . }}
       </div>

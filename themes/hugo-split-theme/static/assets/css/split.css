@@ -213,18 +213,12 @@ body.page-template-page-fullsingle-split p {
 }
 .split-bio p {
   color: #848d96;
-  margin-bottom: 20px;
   line-height: inherit;
 }
 .split-bio a {
   color: #848d96;
   transition-duration: 0.5s;
   border-bottom: 1px dotted #848d96;
-}
-.split-bio a:hover {
-  color: #CA486d;
-  transition-duration: 0.1s;
-  border-bottom: 1px dotted #CA486d;
 }
 .split-bio em,
 .split-bio i {
@@ -274,7 +268,8 @@ body.page-template-page-fullsingle-split p {
   font-size: 1.1875em;
   line-height: inherit;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .split-bio h4, .split-bio .h4 {
   font-size: 1.125em;
@@ -327,6 +322,7 @@ body.page-template-page-fullsingle-split p {
 .split-lists .split-list {
   width: 30%;
   display: inline-block;
+  margin-top: 20px;
   margin-bottom: 40px;
   vertical-align: top;
 }
@@ -367,6 +363,7 @@ body.page-template-page-fullsingle-split p {
   font-size: 12px;
   line-height: 14px;
 }
+
 .split-credit p a {
   color: #848d96;
 }

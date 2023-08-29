@@ -6,13 +6,13 @@
 </head>
 
 <body id="fullsingle" class="page-template-page-fullsingle-split">
-<div class="podcast-episode">
+
   <div class="fs-split">
 
     <!-- Image -->
     {{ if .Site.Params.visual.image.enable }}
 
-      <div class="split-image">
+      <div class="split-image" id="split-media">
 
       </div>
 
@@ -25,7 +25,8 @@
 
     <!-- Content Side -->
     <div class="split-content">
-      <div class="split-content-vertically-center">
+      <div id="episodelist" class="split-content-vertically-center">
+        <!-- Header / menu links -->
         <!-- Intro -->
         {{ partial "intro" . }}
 
@@ -34,13 +35,14 @@
           <!-- Bio -->
           {{ partial "bio" . }}
         {{ end }}
-
+        <!-- Podcast / social links defined on config.toml -->
+        {{ partial "links" . }}
+        <!-- Navigation links -->
+        {{ partial "navigation" . }}
         <!-- Footer -->
         {{ partial "footer" . }}
       </div>
     </div>
-
   </div>
-</div>
 </body>
 </html>

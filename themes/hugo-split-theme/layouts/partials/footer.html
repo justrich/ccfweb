@@ -1,17 +1,6 @@
-{{ if not ( in .Permalink "/episode/")  }}
-{{ partial "episodes" . }}
-{{ end }}
-{{ if not .IsHome }}
-<div class="baseurl">
-<a href="{{ .Site.BaseURL }}" class="baseurl">Home</a>
-</div>
-{{ end }}
-{{ if not ( in .Permalink "/disclaimer/") }}
-{{ partial "disclaimer" . }}
-{{ end }}
 <div class="split-credit">
   <p>&copy;2023 Cancer and Crossfit:&nbsp; <a href="mailto:podcast@cancerandcrossfit.com">podcast@cancerandcrossfit.com</a><p>
   <p>Website by <a href="https://richardhorwood.com/" title="Rich Horwood">Rich</a>.</p>
-  <p>Logo Design by <a href="https://bunton.design" title="Bunton Design">Bunton Design</a>.</p>
+  <p>Logo by <a href="https://bunton.design" title="Bunton Design">Bunton Design</a>.</p>
 </div>
 {{ .Site.Copyright }}

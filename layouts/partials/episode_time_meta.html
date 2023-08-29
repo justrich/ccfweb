@@ -1,0 +1,26 @@
+{{ if .Page.Params.recorded }}
+<hr class="episodemeta-separator" id="top">
+<div class="episodemeta-flex">
+    <div class="episodemeta">
+    <table class="episode-meta-table">
+        <thead><td colspan="2">Episode metadata:</td></thead>
+        <tbody>
+            <tr class="record-date">
+                <td class="heading">Episode recorded:</td>
+                <td>{{ .Page.Params.recorded | time.Format ":date_full" }}.</td>
+            </tr>
+            {{ if or .Page.Params.draft (not .Page.Params.released ) }}
+            <tr class="release-pending">
+                <td class="unreleased" colspan="2">Release date: pending.</td>
+            {{ else }}
+            <tr class="release-date">
+                <td class="heading">First released:</td>
+                <td>{{ .Page.Params.released | time.Format ":date_full" }}.</td>
+            {{ end }}
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<hr class="episodemeta-separator" id="bottom">
+{{ end }}
