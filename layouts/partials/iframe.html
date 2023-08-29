@@ -1,8 +1,7 @@
 {{ if .Page.Params.podcastlink }}
 {{ $link := .Page.Params.podcastlink }}
-{{ $epNum := 1 }}
 <div class="podcast-embed">
-  <div class="listenonspotify">Listen to Episode {{ $epNum }} on Spotify:</div>
+  <div class="listenonspotify">Listen to Episode on Spotify:</div>
     {{ if or .Page.Params.draft ( not .Page.Params.released )}}
     <div class="embed-inner-placeholder">
     Placeholder for actual episode would go here.
