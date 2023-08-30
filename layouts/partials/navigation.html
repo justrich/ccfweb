@@ -3,6 +3,7 @@
 {{ $eplist := (.Site.GetPage "section" "episode").RelPermalink }}
 {{ $disclaimer := (.Site.GetPage "section" "disclaimer").RelPermalink }}
 <div class="navigation">
+  <div class="navigation-inner">
     <ul>
 {{ if .IsHome }}
     <li id="home"><a id="current" href="{{ $home }}">Home</a></li>
@@ -25,4 +26,5 @@
     <li id="disclaimer"><a href="{{ $disclaimer }}">Disclaimer</a></li>
 {{ end }}
     </ul>
+  </div>
 </div>
