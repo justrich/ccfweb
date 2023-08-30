@@ -58,7 +58,7 @@ copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@canc
   # Links List #1
   [[params.links]]
     [params.links.list1]
-      heading = "Podcast Links"
+      heading = "Podcast"
 
       [[params.links.list1.link]]
         text = "Apple Music"
@@ -77,7 +77,7 @@ copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@canc
   # Links List #2
   [[params.links]]
     [params.links.list2]
-      heading = "More Podcast links"
+      heading = "Podcast"
 
       [[params.links.list2.link]]
         text = "Google Podcasts"

@@ -10,12 +10,17 @@
     padding: 0px;
     width: 100%;
 }
+.split-content-vertically-center div {
+    touch-action: pan-y;
+}
 
 /* Navbar */
 .navigation ul {
     display: flex;
     list-style: none;
     padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .navigation li:not(:first-child)::before {
@@ -49,14 +54,6 @@
     opacity: 0.5;
 }
 
-@media screen and (max-width: 767px) {
-    .navigation li a::before,
-    .navigation li a:hover::before {
-        content: "";
-        margin-right: 0;
-   }
-}
-
 .navigation li a:active {
     text-decoration: underline;
 }
@@ -72,24 +69,27 @@
     color: #4e386d;
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 1100px) {
     .navigation {
         width: 100%;
     }
     .navigation li {
         margin: 0
-        padding: 4pe;
-        font-size: 0.4em;
+        padding: 4px;
+        font-size: 0.6em;
+    }
+    .navigation a#current::before {
+        content: ">";
+        margin-right: 10px;
+        margin-left: 5px;
+        color: #47bec7;
+    }
+    .navigation li a::before,
+    .navigation li a:hover::before {
+        content: ">";
+        margin-right: 0px;
     }
 }
-
-/* Typical mobile, no navbar at all */
-@media screen and (max-width: 767px) {
-    .navigation {
-        display: none;
-    }
-}
-
 /* end navbar */
 
 .latest-episode-to-detail {
@@ -192,7 +192,7 @@ hr#bottom.episodemeta-separator {
 table.episode-meta-table {
     border-collapse: collapse;
     font-size: 0.7rem;
-    /*line-height: 15px;*/
+    line-height: 15px;
     border-spacing: 0px;
 }
 
@@ -285,5 +285,37 @@ body > div > div.split-content > div > div.split-bio > p {
 @media (max-width: 1400px) {
     .split-list#list2 {
         display: none;
+    }
+}
+
+/* Only for mobile / portrait */
+.logo-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  background-size: contain;
+  background: url('/mobile-bg.png') no-repeat center;
+  margin: 0 auto;
+  z-index: 1;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* Blend the logo into the background in mobile */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+    .split-content-vertically-center {
+        position: relative;
+    }
+    .logo-overlay {
+        display: block;
     }
 }
