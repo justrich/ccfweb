@@ -15,8 +15,20 @@
 }
 
 /* Re-style link blocks properly */
+.split-lists {
+    display: flex;
+    justify-content: center;
+}
+.split-lists .split-list {
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    width: 100%;
+}
 .split-list ul {
     padding: 0;
+    margin-left: 0;
     list-style: none;
 }
 
