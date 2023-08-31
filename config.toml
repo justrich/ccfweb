@@ -5,6 +5,8 @@ title = "Cancer and Crossfit"
 theme = "hugo-split-theme"
 disableKinds = [ "taxonomy", "taxonomy"  ]
 enableRobotsTXT = true
+# Enter your tracking code to enable Google Analytics
+GoogleAnalytics = "G-B69FM01F7W"
 
 [contentTypes]
   [contentTypes.episode]
@@ -17,8 +19,6 @@ enableRobotsTXT = true
 relativeURLs = true
 uglyURLs = true
 
-# Enter your tracking code to enable Google Analytics
-googleAnalytics = "G-B69FM01F7W"
 
 # Copyright
 copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@cancerandcrossfit.com\">podcast@cancerandcrossfit.com</a><p>"
@@ -29,7 +29,7 @@ copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@canc
   author = "Krystal & Rich"
   description = "Cancer And Crossfit is a podcast discussing cancer, exercise as a form of symptom management, end of life care.  We attempt to break down stigma around cancer, death, dying and day-to-day living.  Crossfit is our exercise regimen of choice, but we have no direct connection to Crossfit, LLC."
   shareImage = "images/social.jpg"
-  twitterHandle = "onepagelove"
+#  twitterHandle = "onepagelove"
 
   # Favicon
   [params.favico]
