@@ -30,12 +30,16 @@
         <div class="logo-overlay"></div>
         <!-- Header / menu links -->
         <!-- Intro -->
-        {{ partial "intro" . }}
-
+        {{ partial "episode-intro" . }}
         <!-- Main -->
         {{ block "main" .  }}
           <!-- Bio -->
           {{ partial "bio" . }}
+        {{ partial "episode-transcript" . }}
+        {{ partial "episode_time_meta" . }}
+        {{ partial "episode-prev-next" . }}
+        {{ partial "iframe" . }}
+        {{ partial "episode-select" . }}
         {{ end }}
         <!-- Podcast / social links defined on config.toml -->
         {{ partial "links" . }}

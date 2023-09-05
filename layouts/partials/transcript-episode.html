@@ -1,0 +1,16 @@
+{{/*
+This is the link back to the episode that goes at the top of an episode
+transcript page.
+*/}}
+{{ $episodeNumber := .Page.File.BaseFileName }}
+{{ $episodes :=  where .Site.RegularPages "Section" "episode" }}
+{{ $ep := where $episodes ".Params.episode" $episodeNumber | first 1}}
+<div class="transcript-flex">
+  <div class="transcript-episode" id="episode-{{ $episodeNumber }}">
+    {{ with index $ep 0  }}
+    <a href="{{ .RelPermalink }}">Episode link</a>
+    {{ else }}
+    <span class="missing">No additional information is available for this episode.</span>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="episode-prev-next">
+  <div class="prev-next">
+    <div class="item" id="previous">
+      {{ with .PrevInSection }}
+        {{ $title := printf "[Ep %s] %s: %s" ( trim .Params.episode "0" ) .Title .Params.tagline }}
+        <a href="{{ .RelPermalink }}" title="{{ $title }}">Previous episode</a>
+      {{ else }}
+        <div class="episode-unavailable">No previous episode</div>
+      {{ end }}
+    </div>
+    <div class="item" id="next">
+      {{ with .NextInSection }}
+      {{ $title := printf "[Ep %s] %s: %s" ( trim .Params.episode "0" ) .Title .Params.tagline }}
+        <a href="{{ .RelPermalink }}" title="{{ $title }}">Next Episode</a>
+      {{ else }}
+        <div class="episode-unavailable">No next episode.</div>
+      {{ end }}
+    </div>
+  </div>
+  <hr>
+</div>

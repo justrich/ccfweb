@@ -9,11 +9,16 @@ enableRobotsTXT = true
 GoogleAnalytics = "G-B69FM01F7W"
 
 [contentTypes]
-  [contentTypes.episode]
-  name = "episode"
-  plural = "episodes"
-  singular = "episode"
-  layout = "layouts/episode"
+  [contenttypes.episode]
+    name = "episode"
+    plural = "episodes"
+    singular = "episode"
+    layout = "layouts/episode"
+  [contenttypes.transcript]
+    name = "transcript"
+    plural = "transcripts"
+    singular = "transcript"
+    layout = "layouts/transcript"
 
 # Local preview mode
 relativeURLs = true

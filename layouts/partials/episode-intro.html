@@ -1,0 +1,7 @@
+<div class="split-intro" id="episode-header">
+  <h1>{{ with .Params.episode }}Episode {{ trim . "0" }}{{ end }}</h1>
+  {{ with .Title }}<h2>{{ . }} :</h2>{{ end }}
+  <div class="episode-tagline">
+  {{ with .Params.tagline }}<h3 class="tagline">{{ . }}</h3>{{ end }}
+  </div>
+</div>

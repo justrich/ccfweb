@@ -2,12 +2,14 @@
 {{ $link := .Page.Params.podcastlink }}
 <div class="podcast-embed">
   <div class="listenonspotify">Listen to Episode on Spotify:</div>
-    {{ if or .Page.Params.draft ( not .Page.Params.released )}}
-    <div class="embed-inner-placeholder">
-    Placeholder for actual episode would go here.
+    <div class="embed-container">
+      {{ if or .Page.Params.draft ( not .Page.Params.released )}}
+      <div class="embed-inner-placeholder">
+      Placeholder: actual Spotify iFrame would go here.
+      </div>
+      {{ else }}
+      <iframe class="ember-inner" src="https://podcasters.spotify.com/pod/show/cancerandcrossfit/embed/episodes/{{ $link }}" scrolling="no"></iframe>
+      {{ end }}
     </div>
-    {{ else }}
-    <iframe class="ember-inner" src="https://podcasters.spotify.com/pod/show/cancerandcrossfit/embed/episodes/{{ $link }}"></iframe>
-    {{ end }}
   </div>
 {{ end }}

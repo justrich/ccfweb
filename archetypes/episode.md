@@ -1,6 +1,7 @@
 ---
 title: "Episode: {{ replace .Name "-" " " | title }}"
 tagline: "Episode Title"
+episode: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 recorded: {{ .Date }}
 released: {{ .Date }}

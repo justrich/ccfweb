@@ -6,6 +6,18 @@
     border-bottom: none;
 }
 
+.breadcrumb ol {
+  padding-left: 0;
+}
+
+.breadcrumb li {
+  display: inline;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: "»";
+}
+
 .split-content-vertically-center {
     padding: 0px;
     width: 100%;
@@ -82,23 +94,173 @@
 .navigation ul {
     display: flex;
     list-style: none;
-    /*padding: 0;*/
     overflow: hidden;
     white-space: nowrap;
 }
 
-.navigation li:not(:first-child)::before {
+.navigation li:not(:last-child)::after {
   content: "|";
   color: #8a8c8e;
-  opacity: 0.5;
-  margin-right: 5px;
+  opacity: 0.3;
+  margin-left: 15px;
+}
+
+.transcript-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transcript-episode,
+.episode-transcript {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.episode-transcript a,
+.transcript-episode a {
+    color: #b1b3b6;
+}
+.episode-transcript a:hover,
+.transcript-episode a:hover {
+    color: #8a8c8e;
+}
+
+.episode-transcript a::before,
+.transcript-episode a::before {
+    content: "▶";
+    margin-right: 10px;
+    opacity: 0.0;
+    transition: opacity 0.3s;
+}
+.episode-transcript a:hover::before,
+.transcript-episode a:hover::before {
+    opacity: 1.0;
+}
+
+.transcript-episode .missing,
+.episode-transcript .missing {
+    font-style: italic;
+}
+
+.speakerID {
+    font-weight: bold;
+    display: block;
+}
+
+.episode-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+}
+
+.episode-selector select {
+    flex: 1;
+    box-sizing: border-box;
+    background-color: #9780bb;
+    color: #3f2a5a;
+    padding: 10px;
+    border: 1px solid #8a8c8e;
+    font-family: "Filson Pro", Montserrat, sans-serif;
+    font-size: 0.7em;
+    font-weight: bold;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 10px;
+    max-width: 75%;
+    width: 75%;
+}
+.episode-selector select:hover {
+    border-color: #dcddde;
+}
+.episode-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.episode-selector select::-ms-expand {
+    display: none;
+}
+.episode-selector select::after {
+  content: '\25BC'; /* Unicode character for down arrow */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+.episode-selector select#episode-select option {
+    color: #ab94c6;
+}
+.episode-selector select option[selected]{
+    color: #848d96;
+    pointer-events: none;
+}
+hr#episode-selector-bottom {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Episode selector (navigation only */
+.episode-prev-next {
+    max-width: 100%;
+}
+.prev-next {
+    display: flex;
+    justify-content: space-between;
+}
+
+.episode-prev-next .prev-next .item {
+    font-size: 0.8rem;
+}
+.episode-prev-next .prev-next .item#previous {
+    margin-left: 10px;
+}
+.episode-prev-next .prev-next .item#next {
+    margin-right: 10px;
+}
+
+.episode-prev-next .prev-next .item a {
+    color: #b1b3b6;
+    position: relative;
+}
+
+.episode-prev-next .prev-next .item .episode-unavailable {
+    font-style: italic;
+    color: #848d96;
+    opacity: 0.3;
 }
 
 
+.episode-prev-next .prev-next .item a::before {
+    content: "▶";
+    width: 20px; /* Fixed width for the arrow */
+    text-align: center; /* Center the arrow horizontally */
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -20px; /* Adjust the right distance as needed */
+    transition: opacity 0.3s;
+}
 
+.episode-prev-next .prev-next .item a:hover::before {
+    opacity: 1.0;
+}
+
+.episode-prev-next .prev-next .item#previous,
+.episode-prev-next .prev-next .item#previous a::before {
+    content: "◀";
+}
+.episode-prev-next hr {
+    opacity: 0.3;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* end episode selector bits */
 .navigation li {
     margin: 0;
-    padding: 10px;
     font-size: 0.7em;
 }
 
@@ -132,27 +294,47 @@
     pointer-events: none;
     color: #876ea7;
 }
+ol li {
+    list-style: number;
+}
 
 @media screen and (max-width: 1100px) {
     .navigation {
         width: 100%;
     }
+
     .navigation li {
         margin: 0
         padding: 4px;
         font-size: 0.6em;
     }
+
+    .episode-transcript a::before,
     .navigation a#current::before {
         content: ">";
         margin-right: 10px;
         margin-left: 5px;
         color: #47bec7;
     }
+
     .navigation li a::before,
     .navigation li a:hover::before {
         content: ">";
         margin-right: 10px;
+        color: #47bec7;
     }
+    .episode-prev-next .prev-next .item#next,
+    .episode-prev-next .prev-next .item#next a::before {
+        content: ">";
+        color: #47bec7;
+    }
+    .episode-prev-next .prev-next .item#previous,
+    .episode-prev-next .prev-next .item#previous a::before {
+        content: "<";
+        color: #47bec7;
+    }
+
+
 }
 /* end navbar */
 
@@ -176,6 +358,24 @@
     font-size: 0.9em;
     text-align: justify-all;
 }
+
+.split-intro#episode-header {
+    letter-spacing: -1px;
+    margin: 0px;
+    line-height: 40px;
+}
+/* Episode description styling */
+.split-intro#episode-header h1 {
+    font-size: 0.5em;
+}
+.split-intro#episode-header h2 {
+    font-size: 0.4em;
+}
+.split-intro#episode-header h3 {
+    font-size: 0.3em;
+    font-style: italic;
+}
+/* Hide episode time meta until mouse over event */
 
 /* Paragraphs in the podcast summary may have multiple
 headings, so space them out a bit more nicely.
@@ -224,6 +424,7 @@ headings, so space them out a bit more nicely.
     text-decoration: none;
 }
 
+.episode-prev-next .prev-next .item a:hover,
 .navigation li a:hover,
 .baseurl a:hover,
 .episode-link a:hover,
@@ -242,10 +443,12 @@ hr.episodemeta-separator {
     color: #878d96;
 }
 hr#top.episodemeta-separator {
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 hr#bottom.episodemeta-separator {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .episodemeta-flex {
@@ -260,6 +463,11 @@ table.episode-meta-table {
     border-spacing: 0px;
 }
 
+.episode-meta-table table,
+.episode-meta-table tr {
+    display: inline-block;
+    margin-right: 10px;
+}
 table.episode-meta-table td.heading {
     padding-right: 10px;
 }
@@ -278,26 +486,38 @@ table.episode-meta-table tr.release-pending {
     text-align: center;
 }
 
+/* Embed spotify iFrame */
+
 .podcast-embed {
     display: flex;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0px 20px 0px;
+}
+.embed-container {
+    text-align: center;
+    width: 100%;
+}
+.embed-inner {
+    display: block;
+    margin: 0 auto;
+}
+
+.listenonspotify {
+}
+
+.podcast-embed iframe {
+    width: 90%;
+    border-radius: 10px;
+    height: 100px;
     overflow: hidden;
     border: none;
-}
+ }
 
-.embed-inner {
-    flex-grow: 1;
-    border: none;
-    margin: 0;
-    padding: 0;
-}
-
-.embed-inner-placeholder {
-    font-style: italic;
-    opacity: 0.4;
-}
+/* end iFrame */
 
 .split-credit {
     opacity: 0.4;
@@ -360,5 +580,24 @@ body > div > div.split-content > div > div.split-bio > p {
     }
     .logo-overlay {
         display: block;
+    }
+}
+@media screen and (max-width: 768px) {
+
+    .episodemeta-flex {
+        display: none;
+    }
+
+    .split-intro#episode-header h1 {
+        font-size: 0.4em;
+    }
+
+    .split-intro#episode-header h2 {
+        font-size: 0.3em;
+    }
+
+    .split-intro#episode-header h3 {
+        font-size: 0.2em;
+        font-style: italic;
     }
 }

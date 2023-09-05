@@ -2,17 +2,19 @@
 <html lang="{{ .Site.LanguageCode | default "en-us" }}">
 
 <head>
-  {{ partial "google" . }}
   {{ partial "head" . }}
 </head>
+{{ partial "google" . }}
 
 <body id="fullsingle" class="page-template-page-fullsingle-split">
+
   <div class="fs-split">
 
     <!-- Image -->
     {{ if .Site.Params.visual.image.enable }}
 
       <div class="split-image" id="split-media">
+
       </div>
 
     <!-- Video -->
@@ -24,14 +26,18 @@
 
     <!-- Content Side -->
     <div class="split-content">
-      <div class="split-content-vertically-center">
+      <div id="episodelist" class="split-content-vertically-center">
         <div class="logo-overlay"></div>
+        <!-- Header / menu links -->
         <!-- Intro -->
         {{ partial "intro" . }}
+
         <!-- Main -->
         {{ block "main" .  }}
           <!-- Bio -->
+        {{ partial "transcript-episode" . }}
           {{ partial "bio" . }}
+        {{ partial "transcript-episode" . }}
         {{ end }}
         <!-- Podcast / social links defined on config.toml -->
         {{ partial "links" . }}
@@ -41,8 +47,6 @@
         {{ partial "footer" . }}
       </div>
     </div>
-
   </div>
-
 </body>
 </html>

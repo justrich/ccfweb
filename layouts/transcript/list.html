@@ -9,10 +9,10 @@
 <div class="episodelist">
     <ol class="episodes">
         {{ range sort .Pages "Date" }}
-        {{ $episodeNumber := trim .Params.episode "0" }}
+        {{ $episodeNumber := index ( findRE `([1-9]+\d*)$` .Params.Title ) 0 }}
         <li value="{{ $episodeNumber }}">
             <div class="episode-item" title="{{ dateFormat "02 Jan 2006" .Params.date }} - {{ .Params.tagline }}">
-                <a href="{{ .RelPermalink }}">{{ .Title }} : {{ .Params.tagline }}</a>
+                <a href="{{ .RelPermalink }}">{{ .Params.tagline }}</a>
             </div>
         </li>
     {{ end }}
