@@ -26,8 +26,9 @@
 
     <!-- Content Side -->
     <div class="split-content">
-      <div id="episodelist" class="split-content-vertically-center">
+      <div id="transcript" class="split-content-vertically-center">
         <div class="logo-overlay"></div>
+        <a id="top"></a>
         <!-- Header / menu links -->
         <!-- Intro -->
         {{ partial "intro" . }}
@@ -36,7 +37,10 @@
         {{ block "main" .  }}
           <!-- Bio -->
         {{ partial "transcript-episode" . }}
+        {{ partial "license" . }}
           {{ partial "bio" . }}
+        {{ partial "topnav" . }}
+        {{ partial "creative-commons" . }}
         {{ partial "transcript-episode" . }}
         {{ end }}
         <!-- Podcast / social links defined on config.toml -->

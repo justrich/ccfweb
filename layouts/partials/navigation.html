@@ -1,6 +1,7 @@
 {{ $about := (.Site.GetPage "section" "about").RelPermalink }}
 {{ $home := .Site.Home.RelPermalink }}
 {{ $eplist := (.Site.GetPage "section" "episode").RelPermalink }}
+{{ $transcriptlist := (.Site.GetPage "section" "transcript").RelPermalink }}
 {{ $disclaimer := (.Site.GetPage "section" "disclaimer").RelPermalink }}
 <div class="navigation">
   <div class="navigation-inner">
@@ -14,6 +15,11 @@
     <li id="episodelist"><a id="current" href="{{ $eplist }}">Episodes</a></li>
 {{ else }}
     <li id="episodelist"><a href="{{ $eplist }}">Episodes</a></li>
+{{ end }}
+{{ if eq .RelPermalink $transcriptlist }}
+    <li id="transcriptlist"><a id="current" href="{{ $transcriptlist }}">Transcripts</a>
+{{ else }}
+    <li id="transcriptlist"><a href="{{ $transcriptlist }}">Transcripts</a>
 {{ end }}
 {{ if eq .RelPermalink $about }}
     <li id="about"><a id="current" href="{{ $about }}">About</a>

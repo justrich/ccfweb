@@ -1,5 +1,5 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "Transcript"
 date: {{ .Date }}
 episode: "{{ replace .Name "-" " " | title }}"
 draft: true

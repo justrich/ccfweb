@@ -1,23 +1,28 @@
 {{ define "main" }}
+{{ $episodeList := where .Site.RegularPages "Section" "episode" }}
 <main>
-<div class="podcast-episode">
+<div class="podcast-transcript">
     <article>
         <header>
         </header>
         {{ .Content }}
     </article>
-<div class="episodelist">
-    <ol class="episodes">
-        {{ range sort .Pages "Date" }}
-        {{ $episodeNumber := index ( findRE `([1-9]+\d*)$` .Params.Title ) 0 }}
+  <div class="transcriptlist">
+    <ol class="transcripts">
+        {{ range sort .RegularPages "Date" }}
+        {{ $episodeNumber := trim .Params.episode "0" }}
+        {{ $epPage := where $episodeList ".Params.episode" .Params.episode | first 1 }}
+        {{ $transcriptLink := .RelPermalink }}
+        {{ with index $epPage 0 }}
         <li value="{{ $episodeNumber }}">
-            <div class="episode-item" title="{{ dateFormat "02 Jan 2006" .Params.date }} - {{ .Params.tagline }}">
-                <a href="{{ .RelPermalink }}">{{ .Params.tagline }}</a>
+            <div class="transcript-item" title="Episode {{ $episodeNumber }} - {{ dateFormat "02 Jan 2006" .Params.date }}">
+                <a href="{{ $transcriptLink }}">{{ .Title }} : {{ .Params.tagline }}</a>
             </div>
         </li>
+        {{ end }}
     {{ end }}
     </ol>
-</div>
+  </div>
 </div>
 </main>
 {{ end }}

@@ -117,10 +117,12 @@
     text-align: center;
 }
 
+.topnav a,
 .episode-transcript a,
 .transcript-episode a {
     color: #b1b3b6;
 }
+.topnav a:hover,
 .episode-transcript a:hover,
 .transcript-episode a:hover {
     color: #8a8c8e;
@@ -359,24 +361,6 @@ ol li {
     text-align: justify-all;
 }
 
-.split-intro#episode-header {
-    letter-spacing: -1px;
-    margin: 0px;
-    line-height: 40px;
-}
-/* Episode description styling */
-.split-intro#episode-header h1 {
-    font-size: 0.5em;
-}
-.split-intro#episode-header h2 {
-    font-size: 0.4em;
-}
-.split-intro#episode-header h3 {
-    font-size: 0.3em;
-    font-style: italic;
-}
-/* Hide episode time meta until mouse over event */
-
 /* Paragraphs in the podcast summary may have multiple
 headings, so space them out a bit more nicely.
  */
@@ -411,13 +395,18 @@ headings, so space them out a bit more nicely.
     font-weight: bold;
 }
 
-.episodelist {
+.episodelist,
+.transcriptlist {
     margin: 20px 0px 20px 30px;
     width: 100%;
 }
+/*#episodelist > div.split-intro > h2 {*/
+/*    font-size: 2rem;*/
+/*}*/
 
 .baseurl a,
 .episode-link a,
+.transcriptlist a,
 .episodelist a,
 .disclaimer a {
     color: #b1bdb6;
@@ -429,12 +418,14 @@ headings, so space them out a bit more nicely.
 .baseurl a:hover,
 .episode-link a:hover,
 .episodelist a:hover,
+.transcriptlist a:hover,
 .disclaimer a:hover {
     text-decoration: none;
     color: #8a8c8e;
 }
 
-.episodes {
+.episodes,
+.transcripts {
     list-style-type: disc;
 }
 
@@ -548,8 +539,74 @@ body > div > div.split-content > div > div.split-bio > p {
     padding: 10px 0px 10px 0px;
 }
 
+/* CC License */
+#transcript > div.split-bio {
+    padding: 0px;
+}
+.creative-commons {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 10px 0;
+    color: #848d96;
+    word-spacing: normal;
+}
+.creative-commons hr {
+    color: #848d96;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.creative-commons a {
+    color: #848d96;
+    align-items: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.creative-commons img {
+    border-width:0;
+    vertical-align: middle;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
+.creative-commons .ccborder {
+    border: none;
+    padding: 15px;
+    transition: background-color 1.5s;
+    border: 1px solid #b1b3b6;
+    border-radius: 5px;
+}
 
+.creative-commons .outline#licensebox {
+    border: 2px solid #47bec7;
+    border-radius: 5px;
+    background-color: #dcddde;
+}
+
+img:focus {
+    outline: none;
+}
+.creative-commons a:hover {
+    color: #b1b3b6;
+}
+.creative-commons a:focus {
+    outline: none;
+}
+
+.creative-commons#license-short {
+    height: 31px;
+}
+
+.topnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+}
+.topnav-inner {
+    font-size: 0.7em;
+    padding-bottom: 10px;
+}
 
 /* Only for mobile / portrait */
 .logo-overlay {
@@ -588,16 +645,8 @@ body > div > div.split-content > div > div.split-bio > p {
         display: none;
     }
 
-    .split-intro#episode-header h1 {
-        font-size: 0.4em;
+    .navigation ul li#transcriptlist {
+        display: none;
     }
 
-    .split-intro#episode-header h2 {
-        font-size: 0.3em;
-    }
-
-    .split-intro#episode-header h3 {
-        font-size: 0.2em;
-        font-style: italic;
-    }
 }
