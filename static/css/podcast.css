@@ -83,12 +83,22 @@
 /* End split list styling */
 
 /* Navbar */
+.navlist {
+    margin-right: 20px;
+    height: 1.5em;
+}
 .navigation {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .navigation-inner {
     align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .navigation ul {
@@ -96,6 +106,7 @@
     list-style: none;
     overflow: hidden;
     white-space: nowrap;
+    padding: 0;
 }
 
 .navigation li:not(:last-child)::after {
@@ -547,7 +558,7 @@ body > div > div.split-content > div > div.split-bio > p {
     text-align: left;
     font-size: 14px;
     line-height: 1.4;
-    margin: 10px 0;
+    margin: 20px 0px 0px 0px;
     color: #848d96;
     word-spacing: normal;
 }
@@ -570,17 +581,22 @@ body > div > div.split-content > div > div.split-bio > p {
 }
 
 .creative-commons .ccborder {
-    border: none;
-    padding: 15px;
-    transition: background-color 1.5s;
+    padding: 0px 15px;
+    transition: background-color 1.5s, color 1.5s;
     border: 1px solid #b1b3b6;
     border-radius: 5px;
+}
+.creative-commons .ccborder p {
+    margin-top: 10px;
 }
 
 .creative-commons .outline#licensebox {
     border: 2px solid #47bec7;
-    border-radius: 5px;
+    color: #3f2a5a;
     background-color: #dcddde;
+}
+.creative-commons .outline#licensebox a {
+    color: #3f2a5a;
 }
 
 img:focus {
@@ -598,10 +614,15 @@ img:focus {
 }
 
 .topnav {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10px;
+}
+.topnav-separator {
+    margin: 20px 0 30px 0;
+    opacity: 0.3;
 }
 .topnav-inner {
     font-size: 0.7em;

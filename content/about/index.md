@@ -27,4 +27,5 @@ Links are below.
 We are not medical professionals, nor are we affiliated with or endorsed by
 CrossFit, LLC.
 
-Please read our [content disclaimer](/disclaimer/).
+Please read our [content disclaimer](/disclaimer/) and [Licensing Information](/license/)
+

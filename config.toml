@@ -36,6 +36,11 @@ copyright = "&copy;2023 Cancer and Crossfit:&nbsp; <a href=\"mailto:podcast@canc
   shareImage = "images/social.jpg"
 #  twitterHandle = "onepagelove"
 
+  # reCAPTCHA setup
+  [params.recaptcha]
+  enable = true
+  sitekey = "6LcUBwMoAAAAAIbmYHiL-jI8PZUcqmYc4_G3860d"
+
   # Favicon
   [params.favico]
   # Tile color for MS browsers, eg:

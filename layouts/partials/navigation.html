@@ -3,8 +3,11 @@
 {{ $eplist := (.Site.GetPage "section" "episode").RelPermalink }}
 {{ $transcriptlist := (.Site.GetPage "section" "transcript").RelPermalink }}
 {{ $disclaimer := (.Site.GetPage "section" "disclaimer").RelPermalink }}
+{{ $contact := (.Site.GetPage "section"  "contact").RelPermalink }}
+{{ $license := (.Site.GetPage "section" "license").RelPermalink }}
 <div class="navigation">
   <div class="navigation-inner">
+    <div class="navlist" id="toprow">
     <ul>
 {{ if .IsHome }}
     <li id="home"><a id="current" href="{{ $home }}">Home</a></li>
@@ -32,5 +35,20 @@
     <li id="disclaimer"><a href="{{ $disclaimer }}">Disclaimer</a></li>
 {{ end }}
     </ul>
+    </div>
+    <div class="navlist" id="bottomrow">
+    <ul>
+{{ if eq .RelPermalink $contact }}
+      <li id="contact"><a id="current" href="{{ $contact }}">Contact Us</a></li>
+{{ else }}
+      <li id="contact"><a href="{{ $contact }}">Contact Us</a></li>
+{{ end }}
+{{ if eq .RelPermalink $license }}
+      <li id="license"><a id="current" href="{{ $license }}">Licensing</a></li>
+{{ else }}
+      <li id="license"><a href="{{ $license }}">Licensing</a></li>
+{{ end }}
+    </ul>
+    </div>
   </div>
 </div>

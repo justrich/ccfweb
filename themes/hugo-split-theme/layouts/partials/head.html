@@ -13,17 +13,17 @@
 {{ with .Site.Params.description }}<meta property="og:description" content="{{ . }}" />{{ end }}
 <meta property="og:url" content="{{ .Site.BaseURL }}" />
 {{ with .Site.Params.shareImage }}
-<meta property="og:image" content="{{ . | absURL }}" />
+<meta property="og:image" content="{{ . | relURL }}" />
 <meta name="twitter:card" content="summary_large_image" />
 {{ end }}
 {{ with .Site.Params.twitterHandle }}<meta name="twitter:site" content="@{{ . }}" />{{ end }}
 
 <!-- Favicon -->
-{{ with .Site.Params.favicon }}<link rel="icon" href="{{ . | absURL }}" />{{ end }}
+{{ with .Site.Params.favicon }}<link rel="icon" href="{{ . | relURL }}" />{{ end }}
 
 <!-- Styles -->
-<link rel="stylesheet" href="{{ "assets/css/split.css" | absURL }}" type="text/css" media="screen" />
-<link rel="stylesheet" href="{{ "/css/podcast.css" | absURL }}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ "assets/css/split.css" | relURL }}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ "css/podcast.css" | relURL }}" type="text/css" media="screen" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
@@ -31,7 +31,7 @@
 <link rel="stylesheet" href="/css/lightbox.css">
 {{ partial "customfont" . }}
 {{ if .Site.Params.custom.css.enable }}
-<link rel="stylesheet" href="{{ "css/style.css" | absURL }}" type="text/css" media="screen" />
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}" type="text/css" media="screen" />
 {{ end }}
 {{ partial "favico" . }}
 <!-- Image Styles -->
@@ -53,6 +53,18 @@
     }
   {{ end }}
   </style>
-<script type="text/javascript" src="/js/lightbox.js"></script>
+<script type="text/javascript" src="{{ "js/lightbox.js" | relURL }}"></script>
+{{ if or (eq .Section "contact") (in .RelPermalink "contact") }}
+<link rel="stylesheet" href="{{ "css/contactform.css" | relURL }}" type="text/css" media="screen" />
+<script src="https://www.google.com/recaptcha/api.js?render={{ .Site.Params.recaptcha.sitekey }}"></script>
+<script type="text/javascript">
+  grecaptcha.ready(function () {
+    grecaptcha.execute('{{ .Site.Params.recaptcha.sitekey }}', {action: 'submit'}).then(function (token) {
+      console.log("got token: " + token);
+      document.getElementById('g-recaptcha-response').value = token;
+    });
+  });
+</script>
+{{ end }}
 {{ end }}
 
