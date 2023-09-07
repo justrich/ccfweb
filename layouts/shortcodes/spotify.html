@@ -1,0 +1,12 @@
+{{/*
+  Embed a track directly from spotify in the current screen
+  Just needs the track id (get from the embed link)
+  eg: 0lMk95xQZtrTDFZGvXvqnU
+  src="https://open.spotify.com/embed/track/0lMk95xQZtrTDFZGvXvqnU"
+*/}}
+{{ $link := .Get "track" }}
+{{ $title := .Get "title" | default "Listen to song on Spotify" }}
+{{ with $link }}
+  {{ $spotifyURL := printf "https://open.spotify.com/embed/track/%s" $link }}
+  <a class="musiclink" href="{{ $spotifyURL }}" target="_blank">{{ $title }}</a>
+{{ end }}

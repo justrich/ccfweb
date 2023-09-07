@@ -1,0 +1,21 @@
+{{/*
+  Embed spotify and/or apple podcast iFrame if defined in
+  episode topmatter.
+*/}}
+{{- $spotifyURL   := .Params.urlSpotify }}
+{{- $appleURL     := .Params.urlApple   }}
+{{- if or .Params.embedSpotify .Params.embedApple }}
+  {{- $embedSpotify := .Params.embedSpotify }}
+  {{- $embedApple   := .Params.embedApple }}
+<div class="podcast-embed">
+  Listen to this episode:
+  <div class="embedded-players">
+  {{- with $embedApple }}
+    {{- partial "apple" . }}
+  {{- end }}
+  {{- with $embedSpotify }}
+    {{- partial "spotify" . }}
+  {{- end }}
+  </div>
+</div>
+{{- end }}

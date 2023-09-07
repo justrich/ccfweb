@@ -6,7 +6,10 @@ date: {{ .Date }}
 recorded: {{ .Date }}
 released: {{ .Date }}
 draft: true
-podcastlink: "Cancer-and-Crossfit-Unreleased-abcd123"
+urlSpotify: "https://open.spotify.com/embed/episode/<THIS PART HERE>?theme=0"
+embedSpotify: "https://open.spotify.com/embed/episode/<THIS PART HERE>?utm_source=generator" 
+embedApple: "https://embed.podcasts.apple.com/us/podcast/<THIS PART HERE>/<idxxxxx?i=xxxxx>"
+urlApple: "idXXXXXX?i=xxxxx"
 ---
 ## Episode summary:
 

@@ -311,6 +311,11 @@ ol li {
     list-style: number;
 }
 
+a.musiclink:before {
+  content: "\266B";
+  padding-right: 10px;
+}
+
 @media screen and (max-width: 1100px) {
     .navigation {
         width: 100%;
@@ -359,6 +364,14 @@ ol li {
 .mostrecentepisode {
     opacity: 0.6;
     padding-bottom: 1.5rem;
+}
+.listenonspotify.lightboxed {
+    background-color: #1DB954;
+    height: 1.4em;
+    margin-bottom: 10px;
+}
+.listenonspotify.lightboxed .listenonspotify-inner {
+    background-color: #1DB954;
 }
 .podcast-embed-homepage {
     margin-top: 20px;
@@ -499,6 +512,29 @@ table.episode-meta-table tr.release-pending {
     margin: 0 auto;
     padding: 20px 0px 20px 0px;
 }
+/* Embedded pop-ins/lightboxed */
+.embedded-players {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.embedded-players .lightboxed {
+    margin-top: 5px;
+    padding: 0px 25px;
+}
+
+.embedded-players img {
+    height: 40px;
+    width: 165px;
+}
+.embedded-players img {
+    height: 40px;
+    width: 165px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+}
+
+/* end embedded popins */
 .embed-container {
     text-align: center;
     width: 100%;

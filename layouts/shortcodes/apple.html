@@ -1,0 +1,9 @@
+{{/*
+  Embed an apple podcast player.
+*/}}
+{{ $link := .Get "track" }}
+{{ $title := .Get "title" | default "Listen to song on Spotify" }}
+{{ with $link }}
+  {{ $spotifyURL := printf "https://open.spotify.com/embed/track/%s" $link }}
+  <a href="{{ $spotifyURL }}" target="_blank">{{ $title }}</a>
+{{ end }}
