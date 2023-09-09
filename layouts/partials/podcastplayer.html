@@ -10,8 +10,8 @@
 <div class="podcast-embed">
   Listen to this episode:
   <div class="embedded-players">
-  {{- with $embedApple }}
-    {{- partial "apple" . }}
+  {{- if and .Params.appleEpisode .Params.embedApple }}
+    {{- partial "apple" ( dict "episode" .Params.appleEpisode "embed" .Params.embedApple ) }}
   {{- end }}
   {{- with $embedSpotify }}
     {{- partial "spotify" . }}

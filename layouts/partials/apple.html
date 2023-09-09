@@ -1,16 +1,11 @@
 {{/*
   This sets up the lightboxed link.
-  Episode shorcode needs the part after
-  https://embed.podcasts.apple.com/us/podcast/.......
 */}}
-{{- $embedApple := . }}
-{{- with $embedApple }}
-  {{- $appleURL := printf "https://embed.podcasts.apple.com/us/podcast/%s" $embedApple }}
+{{- $episodeLink := printf "https://podcasts.apple.com/us/podcast/cancer-and-crossfit/id=1700042264?i=%%s" .episode }}
 <div class="applepodcast lightboxed">
   <div class="applepodcast-inner">
-    <a href="{{ $appleURL }}" target="_blank">
+    <a class="lightbox-apple" embed-url="{{ .embed }}" href="https://podcasts.apple.com/us/podcast/cancer-and-crossfit/id1700042264?i={{ .episode }}" target="_blank">
       <img src="{{ "img/apple-podcasts.svg" | relURL}}" alt="Listen on Apple Podcasts" />
     </a>
   </div>
 </div>
-{{- end }}

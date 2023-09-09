@@ -8,8 +8,7 @@ released: {{ .Date }}
 draft: true
 urlSpotify: "https://open.spotify.com/embed/episode/<THIS PART HERE>?theme=0"
 embedSpotify: "https://open.spotify.com/embed/episode/<THIS PART HERE>?utm_source=generator" 
-embedApple: "https://embed.podcasts.apple.com/us/podcast/<THIS PART HERE>/<idxxxxx?i=xxxxx>"
-urlApple: "idXXXXXX?i=xxxxx"
+appleEpisode: "The part after ?i=<xxxxxxxx>"
 ---
 ## Episode summary:
 

@@ -163,11 +163,12 @@ body.page-template-page-fullsingle-split p {
 }
 .fs-split .split-content .split-content-vertically-center {
   padding: 80px;
-  max-width: 640px;
+  width: 95%;
+  max-width: 640px%;
   margin-top: auto;
   margin-bottom: auto;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   .fs-split .split-content .split-content-vertically-center {
     padding: 60px;
   }

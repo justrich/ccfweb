@@ -5,7 +5,7 @@
         <thead><td colspan="2">Episode metadata:</td></thead>
         <tbody>
             <tr class="record-date">
-                <td class="heading">Episode recorded:</td>
+                <td class="heading">Recorded:</td>
                 <td>{{ .Page.Params.recorded | time.Format ":date_full" }}.</td>
             </tr>
             {{ if or .Page.Params.draft (not .Page.Params.released ) }}

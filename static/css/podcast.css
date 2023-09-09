@@ -132,6 +132,8 @@
 .episode-transcript a,
 .transcript-episode a {
     color: #b1b3b6;
+    text-decoration: underline;
+    margin-left: -10px;
 }
 .topnav a:hover,
 .episode-transcript a:hover,
@@ -142,7 +144,8 @@
 .episode-transcript a::before,
 .transcript-episode a::before {
     content: "▶";
-    margin-right: 10px;
+    position: relative;
+    margin-left: 10px;
     opacity: 0.0;
     transition: opacity 0.3s;
 }
@@ -473,7 +476,7 @@ hr#bottom.episodemeta-separator {
 }
 table.episode-meta-table {
     border-collapse: collapse;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     line-height: 15px;
     border-spacing: 0px;
 }
@@ -512,6 +515,7 @@ table.episode-meta-table tr.release-pending {
     margin: 0 auto;
     padding: 20px 0px 20px 0px;
 }
+
 /* Embedded pop-ins/lightboxed */
 .embedded-players {
     display: flex;
@@ -554,6 +558,11 @@ table.episode-meta-table tr.release-pending {
     overflow: hidden;
     border: none;
  }
+
+.podcast-embed.debug iframe {
+    height: 175px;
+    width: 660px;
+}
 
 /* end iFrame */
 
@@ -689,14 +698,16 @@ img:focus {
         margin: 0;
         padding: 0;
     }
-    .split-content-vertically-center {
-        position: relative;
-    }
     .logo-overlay {
         display: block;
     }
 }
 @media screen and (max-width: 768px) {
+
+    .split-content-vertically-center {
+        position: relative;
+        width: 95%;
+    }
 
     .episodemeta-flex {
         display: none;

@@ -1,0 +1,131 @@
+<div class="debug" id="screnresolution">
+</div>
+<script>
+    // Function to display screen dimensions
+    function displayScreenDimensions() {
+        // Get the width and height of the screen
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+        // Display an alert with the dimensions
+        document.getElementById("screnresolution").innerHTML="Res W: " + screenWidth + " px x H: " + screenHeight + " px";
+    }
+
+    // Call the function when the page loads
+    window.onload = function () {
+        displayScreenDimensions();
+    };
+</script>
+<style>
+    .debug {
+        margin: 20px 0 ;
+        padding: 0 10px;
+        font-style: italic;
+        font-size: 0.7em;
+        border: 1px solid #47bec7;
+        background-color: #848d96;
+        color: #3f2a5a;
+        border-radius: 5px;
+        text-align: center;
+    }
+#urlcompression {
+    display: flex;
+    align-content: center;
+}
+#innercompression,
+#innercompression input {
+    width: 100%;
+    font-size: 0.8em;
+}
+#innercompression #encodedURL,
+#innercompression #base64Only {
+  font-size: 0.6em;
+  font-style: italic;
+}
+</style>
+<hr>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.min.js"></script>
+<div id="urlcompression">
+  <div id="innercompression">
+    <label for="urlInput">Enter URL:</label>
+    <input type="text" id="urlInput" value="https://example.com/some-long-url">
+    <button id="encode">Encode</button>
+    <button id="base64">Base64</button>
+    <button id="decode">Decode</button>
+    <br />
+    <label id="encodelength"></label>
+    <input id="encodedURL" type="text" placeholder="Encoded URL...">
+    <label id="base64length"></label>
+    <input id="base64Only" type="text" placeholder="Base64 URL...">
+    <input id="validated" type="text" placeholder="...waiting to validate compressed version...">
+    <input id="validated2" type="text" placeholder="...waiting to validate base64 version...">
+  </div>
+</div>
+<script>
+  const encodeButton = document.getElementById('encode');
+  const base64Button = document.getElementById('base64');
+  const decodeButton = document.getElementById('decode');
+  const urlPlain = document.getElementById('urlInput').value;
+
+  encodeButton.addEventListener('click', compressURL);
+  base64Button.addEventListener('click', encodeURL);
+  decodeButton.addEventListener('click', function() {
+    decompressURL();
+    decodeURL();
+  });
+
+// Function to compress a URL and encode it to Base64
+function compressURL() {
+    try {
+      let url = document.getElementById('urlInput').value;
+        // Compress the URL using pako.js
+        const compressedData = pako.deflate(url, { to: 'string' });
+
+        // Encode the compressed data to Base64
+        const encbase64URL = btoa(String.fromCharCode.apply(null,compressedData));
+        document.getElementById('encodedURL').value = encbase64URL;
+        document.getElementById('encodelength').textContent = encbase64URL.length;
+    } catch (error) {
+        console.error('Compression error:', error);
+        return null; // Return null in case of an error
+    }
+}
+
+function encodeURL() {
+    try {
+      let url = document.getElementById('urlInput').value;
+        const base64URL = btoa(url);
+        document.getElementById('base64Only').value = base64URL;
+        document.getElementById('base64length').textContent = base64URL.length;
+    } catch (error) {
+        console.error('Compression error:', error);
+        return null; // Return null in case of an error
+    }
+}
+
+// Function to decode a Base64-encoded and decompress a URL
+function decompressURL() {
+    try {
+      let base64URL = document.getElementById('encodedURL').value;
+      const compressedData = new Uint8Array(atob(base64URL).split('').map(function (c) {
+        return c.charCodeAt(0);
+      }));
+      const originalData = pako.inflate(compressedData, { to: 'string'});
+      document.getElementById('validated').value = originalData;
+    } catch (error) {
+        console.error('Decompression error:', error);
+        return null; // Return null in case of an error
+    }
+}
+
+function decodeURL() {
+    try {
+      let base64URL = document.getElementById('base64Only').value;
+      const originalData = atob(base64URL);
+      document.getElementById('validated2').value = originalData
+    } catch (error) {
+        console.error('Decompression error:', error);
+        return null; // Return null in case of an error
+    }
+}
+</script>

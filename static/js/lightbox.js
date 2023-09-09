@@ -23,17 +23,6 @@ function is_spotifyPodcastlink(url) {
     }
     return false;
 }
-function is_applePodcastlink(url) {
-    const regex = /^(https?:\/\/)?embed\.podcasts\.apple\.com\/us\/podcast\/(.+)$/;
-    const match = url.match(regex);
-
-    if (match) {
-        let sID = match[2];
-        return sID;
-    }
-    return false;
-}
-
 function is_imagelink(url) {
     var p = /([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i;
     return (url.match(p)) ? true : false;
@@ -143,11 +132,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 element.classList.add('lightbox-spotify');
                 element.setAttribute('episode-id',is_spotifyPodcastlink(url));
             }
-
-            if(is_applePodcastlink(url) && !element.classList.contains('no-lightbox')) {
-                element.classList.add('lightbox-apple');
-                element.setAttribute('episode-id',is_applePodcastlink(url));
-            }
         }
     });
 
@@ -164,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
     elements.forEach(element => {
         element.addEventListener("click", function(event) {
             event.preventDefault();
-            document.getElementById('lightbox').innerHTML = '<a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+this.getAttribute('data-id')+'?autoplay=1&start='+this.getAttribute('startsec')+'&end='+this.getAttribute('endsec')+'&showinfo=0&rel=0"></iframe></div>';
+            document.getElementById('lightbox').innerHTML = '<a id="close"></a><div class="videoWrapperContainer"><div class="videoWrapper"><iframe src="https://www.youtube.com/embed/'+this.getAttribute('data-id')+'?autoplay=1&start='+this.getAttribute('startsec')+'&end='+this.getAttribute('endsec')+'&showinfo=0&rel=0"></iframe></div>';
             document.getElementById('lightbox').style.display = 'block';
 
             setGallery(this);
@@ -181,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>`;
 
-            document.getElementById('lightbox').innerHTML = '<a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="spotify audioWrapperContainer"><div class="spotify audioWrapper">'+iFrameSrc+'</div>';
+            document.getElementById('lightbox').innerHTML = '<a id="close"></a><div class="spotify audioWrapperContainer"><div class="spotify audioWrapper">'+iFrameSrc+'</div>';
             document.getElementById('lightbox').style.display = 'block';
 
             setGallery(this);
@@ -198,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy"></iframe>`;
 
-            document.getElementById('lightbox').innerHTML = '<a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="spotify audioWrapperContainer"><div class="spotify audioWrapper">'+iFrameSrc+'</div>';
+            document.getElementById('lightbox').innerHTML = '<a id="close"></a><div class="spotify audioWrapperContainer"><div class="spotify audioWrapper">'+iFrameSrc+'</div>';
             document.getElementById('lightbox').style.display = 'block';
 
             setGallery(this);
@@ -209,12 +193,12 @@ document.addEventListener("DOMContentLoaded", function() {
     elements.forEach(element => {
         element.addEventListener("click", function(event) {
             event.preventDefault();
-            let iFrameSrc = `<iframe src="https://embed.podcasts.apple.com/us/podcast/${this.getAttribute('episode-id')}"
+            let iFrameSrc = `<iframe id="embedPlayer" src="${this.getAttribute('embed-url')}&theme=dark"
                 frameborder="0" allowfullscreen=""
-                allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
-                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+                allow="autoplay *; encrypted-media *; clipboard-write"
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
                 loading="lazy"></iframe>`;
-            document.getElementById('lightbox').innerHTML = '<a id="close"></a><a id="next">&rsaquo;</a><a id="prev">&lsaquo;</a><div class="apple audioWrapperContainer"><div class="apple audioWrapper">'+iFrameSrc+'</div>';
+            document.getElementById('lightbox').innerHTML = '<a id="close"></a><div class="apple audioWrapperContainer"><div class="apple audioWrapper">'+iFrameSrc+'</div></div>';
             document.getElementById('lightbox').style.display = 'block';
 
             setGallery(this);
