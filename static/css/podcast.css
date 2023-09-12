@@ -169,7 +169,9 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding-bottom: 10px;
+    width: 80%;
+    text-align: center;
+    max-width: 100%;
 }
 
 .episode-selector select {
@@ -178,15 +180,15 @@
     background-color: #9780bb;
     color: #3f2a5a;
     padding: 10px;
+    line-height: 0.8rem;
     border: 1px solid #8a8c8e;
     font-family: "Filson Pro", Montserrat, sans-serif;
-    font-size: 0.7em;
+    font-size: 0.8rem;
     font-weight: bold;
     appearance: none;
     -webkit-appearance: none;
     border-radius: 10px;
-    max-width: 75%;
-    width: 75%;
+    max-width: 55%;
 }
 .episode-selector select:hover {
     border-color: #dcddde;
@@ -220,20 +222,22 @@ hr#episode-selector-bottom {
 /* Episode selector (navigation only */
 .episode-prev-next {
     max-width: 100%;
+    text-align: center;
+    align-items: center;
+    vertical-align: center;
 }
-.prev-next {
+.prev-next,
+.selector-flex {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
 }
 
 .episode-prev-next .prev-next .item {
     font-size: 0.8rem;
-}
-.episode-prev-next .prev-next .item#previous {
-    margin-left: 10px;
-}
-.episode-prev-next .prev-next .item#next {
-    margin-right: 10px;
+    max-width: 25%;
+    white-space: nowrap;
+    vertical-align: middle;
 }
 
 .episode-prev-next .prev-next .item a {
@@ -246,27 +250,30 @@ hr#episode-selector-bottom {
     color: #848d96;
     opacity: 0.3;
 }
-
-
-.episode-prev-next .prev-next .item a::before {
-    content: "▶";
-    width: 20px; /* Fixed width for the arrow */
-    text-align: center; /* Center the arrow horizontally */
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: -20px; /* Adjust the right distance as needed */
-    transition: opacity 0.3s;
+.episode-prev-next .prev-next .item .episode-unavailable:hover {
+    text-decoration: underline;
 }
 
-.episode-prev-next .prev-next .item a:hover::before {
+
+.episode-prev-next .prev-next .item#previous a:hover::before,
+.episode-prev-next .prev-next .item#next     a:hover::after {
     opacity: 1.0;
 }
 
-.episode-prev-next .prev-next .item#previous,
 .episode-prev-next .prev-next .item#previous a::before {
     content: "◀";
+    position: absolute;
+    opacity: 0;
+    left: -15px;
+    transition: opacity 0.4s;
+}
+
+.episode-prev-next .prev-next .item#next a::after {
+    content: "▶";
+    position: absolute;
+    opacity: 0;
+    left: 33px;
+    transition: opacity 0.4s;
 }
 .episode-prev-next hr {
     opacity: 0.3;
@@ -274,6 +281,9 @@ hr#episode-selector-bottom {
     margin-bottom: 0.5rem;
 }
 
+#episode-select {
+    text-align: center;
+}
 /* end episode selector bits */
 .navigation li {
     margin: 0;
@@ -344,16 +354,16 @@ a.musiclink:before {
         margin-right: 10px;
         color: #47bec7;
     }
-    .episode-prev-next .prev-next .item#next,
-    .episode-prev-next .prev-next .item#next a::before {
-        content: ">";
-        color: #47bec7;
-    }
-    .episode-prev-next .prev-next .item#previous,
-    .episode-prev-next .prev-next .item#previous a::before {
-        content: "<";
-        color: #47bec7;
-    }
+    /*.episode-prev-next .prev-next .item#next,*/
+    /*.episode-prev-next .prev-next .item#next a::before {*/
+    /*    content: ">";*/
+    /*    color: #47bec7;*/
+    /*}*/
+    /*.episode-prev-next .prev-next .item#previous,*/
+    /*.episode-prev-next .prev-next .item#previous a::before {*/
+    /*    content: "<";*/
+    /*    color: #47bec7;*/
+    /*}*/
 
 
 }
@@ -427,10 +437,6 @@ headings, so space them out a bit more nicely.
     margin: 20px 0px 20px 30px;
     width: 100%;
 }
-/*#episodelist > div.split-intro > h2 {*/
-/*    font-size: 2rem;*/
-/*}*/
-
 .baseurl a,
 .episode-link a,
 .transcriptlist a,
@@ -688,7 +694,7 @@ img:focus {
     background: url('/mobile-bg.png') no-repeat center;
     margin: 0 auto;
     z-index: 1;
-    opacity: 0.04;
+    opacity: 0.07;
     pointer-events: none;
 }
 
@@ -709,6 +715,21 @@ img:focus {
         width: 95%;
     }
 
+    .episode-selector select {
+        max-width: 40%;
+    }
+    .episode-prev-next .prev-next .item#previous a {
+        position: relative;
+        left: 10px;
+    }
+    .episode-prev-next .prev-next .item#next a {
+        position: relative;
+        right: 10px;
+    }
+    episode-prev-next .prev-next .item#previous a:hover::before,
+    .episode-prev-next .prev-next .item#next     a:hover::after {
+        opacity: 0;
+    }
     .episodemeta-flex {
         display: none;
     }
@@ -718,3 +739,5 @@ img:focus {
     }
 
 }
+
+

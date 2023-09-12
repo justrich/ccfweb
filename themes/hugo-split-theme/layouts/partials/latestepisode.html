@@ -4,7 +4,7 @@
   <div class="latest-episode-summary">
     <div class="mostrecentepisode">Most Recent Episode:</div>
 {{ with index $latestEpisode 0 }}
-  {{ $episodeNumber := index ( findRE `([1-9]+\d*)$` .Params.Title ) 0 }}
+  {{ $episodeNumber := trim .Params.episode "0" }}
   {{/*
     Grab just the episode summary from the markdown document.
 
@@ -23,6 +23,5 @@
   </div>
     {{ partial "episode_time_meta" . }}
     {{ partial "episode-prev-next" . }}
-    {{ partial "episode-select" . }}
 {{ end }}
 </div>

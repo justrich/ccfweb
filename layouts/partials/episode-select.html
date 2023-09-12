@@ -1,13 +1,15 @@
-{{ $allEpisodes := where .Site.RegularPages "Section" "episode" }}
+{{- $allEpisodes := where .Site.RegularPages "Section" "episode" }}
 <div class="episode-selector" id="episode-dropdown">
+  <div class="selector-flex">
     <select id="episode-select" onchange="window.location.href=this.value">
-        <option disabled selected>Jump to different episode...</option>
-    {{ $thisEp := .RelPermalink }}
-    {{ range ( sort $allEpisodes ".Date" ) }}
-      {{ if not (eq .RelPermalink $thisEp ) }}
-        {{ $epNo := trim .Params.episode "0" }}
+        <option disabled selected>Select an episode...</option>
+    {{- $thisEp := .RelPermalink }}
+    {{- range ( sort $allEpisodes ".Date" ) }}
+      {{- if not (eq .RelPermalink $thisEp ) }}
+        {{- $epNo := trim .Params.episode "0" }}
         <option value={{ .RelPermalink }} title="Episode {{ $epNo }}">Ep {{ $epNo}}: {{ .Title }}: {{ .Params.tagline }}</option>
-      {{ end }}
-    {{ end }}
+      {{- end }}
+    {{- end }}
     </select>
+  </div>
 </div>
