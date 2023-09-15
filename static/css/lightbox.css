@@ -42,10 +42,10 @@
 #lightbox .mediaWrapperOuter .mediaWrapperInner {
     height: 0;
     line-height: 0;
+    width: 100%;
     margin: 0;
     padding: 0;
     position: relative;
-    padding-bottom: 56.333%; /* custom */
     background: black;
 }
 #lightbox .mediaWrapperInner iframe {
@@ -63,6 +63,12 @@
     border-radius: 12px;
     width: 100%;
     overflow: hidden;
+}
+#lightbox .youtube.mediaWrapperInner {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
 }
 /* Spotify specific */
 #lightbox .spotify.mediaWrapperOuter {
@@ -110,6 +116,9 @@
   }
   #lightbox .spotify.mediaWrapperOuter {
     width: 375px;
+  }
+  #lightbox .youtube.mediaWrapperOuter {
+    max-width: 98%;
   }
 }
 
