@@ -249,6 +249,7 @@ hr#episode-selector-bottom {
     font-style: italic;
     color: #848d96;
     opacity: 0.3;
+    cursor: not-allowed;
 }
 .episode-prev-next .prev-next .item .episode-unavailable:hover {
     text-decoration: underline;

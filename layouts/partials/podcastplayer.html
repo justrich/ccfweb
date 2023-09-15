@@ -13,8 +13,8 @@
   {{- if and .Params.appleEpisode .Params.embedApple }}
     {{- partial "apple" ( dict "episode" .Params.appleEpisode "embed" .Params.embedApple ) }}
   {{- end }}
-  {{- with $embedSpotify }}
-    {{- partial "spotify" . }}
+  {{- if .Params.spotifyEpisode }}
+    {{- partial "spotify" ( dict "episode" .Params.spotifyEpisode ) }}
   {{- end }}
   </div>
 </div>

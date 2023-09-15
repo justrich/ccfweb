@@ -6,7 +6,7 @@
   {{- $spotifyURL := printf "https://open.spotify.com/embed/episode/%s?theme=0" $id }}
 <div class="spotifypodcast lightboxed">
   <div class="spotifypodcast-inner">
-    <a href="{{ $spotifyURL }}" target="_blank">
+    <a class="lightbox-media" media-type="spotify-podcast-episode" embed-url="https://open.spotify.com/embed/episode/{{ .episode }}" href="https://open.spotify.com/episode/{{ .episode }}" target="_blank">
       <img src="{{ "img/listen-on-spotify.svg" | relURL }}" alt="Listen on Spotify" />
     </a>
   </div>

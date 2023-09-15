@@ -6,9 +6,9 @@ date: {{ .Date }}
 recorded: {{ .Date }}
 released: {{ .Date }}
 draft: true
-urlSpotify: "https://open.spotify.com/embed/episode/<THIS PART HERE>?theme=0"
-embedSpotify: "https://open.spotify.com/embed/episode/<THIS PART HERE>?utm_source=generator" 
+spotifyEpisode: "xxxxxx"
 appleEpisode: "The part after ?i=<xxxxxxxx>"
+embedApple: "Enture url from the iframe embed""
 ---
 ## Episode summary:
 

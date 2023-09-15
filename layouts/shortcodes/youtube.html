@@ -1,18 +1,22 @@
 {{/*
     Embed a video in the current screen (thanks to lightbox.js)
 */}}
-
 {{ $video := .Get "video" | default "" }}
-{{ $start := .Get "start" | default "0" }}
-{{ $end := .Get "end" | default "" }}
-{{ $title := .Get "title" | default "Watch Video" }}
-{{ $params := safeHTMLAttr `target="_blank" class="lightbox-youtube gallery" rel="noopener"` }}
-
+  {{ $start := .Get "start" }}
+  {{ $title := .Get "title" | default "Watch Video" }}
+  {{ $end := .Get "end" }}
+  {{ $baseURL := "https://www.youtube.com" }}
+  {{ $controls := printf "autoplay=1&origin=%s" .Site.BaseURL }}
+  {{ $params := safeHTMLAttr `target="_blank" fullscreen="0" rel="noopener"` }}
+{{ if ne $start "" }}
+  {{ $controls = printf "%s&start=%s" $controls $start }}
+{{ end }}
+{{ if ne $end "" }}
+  {{ $controls = printf "%s&end=%s" $controls $end }}
+{{ end }}
 
 {{ with $video }}
-  {{ $youtubeURL := printf "https://www.youtube.com/watch?v=%s" $video }}
-  <a href="{{ $youtubeURL }}" target="_blank" startsec="{{ $start }}" endsec="{{ $end }}" data-id="{{ $video }}">{{ $title }}</a>
-{{ else }}
-  <!-- Handle the case when 'video' parameter is missing or empty -->
-  <p>Error: 'video' parameter is missing or empty.</p>
+  {{ $videoURL := printf "%s/watch?v=%s&%s" $baseURL $video $controls}}
+  {{ $embedURL := printf "%s/embed/%s?%s" $baseURL $video $controls }}
+<a class="lightbox-media" media-type="youtube-video" embed-url="{{ $embedURL }}" href="{{ $videoURL }}">{{ $title }}</a>
 {{ end }}

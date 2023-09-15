@@ -7,6 +7,7 @@
 {{ $link := .Get "track" }}
 {{ $title := .Get "title" | default "Listen to song on Spotify" }}
 {{ with $link }}
-  {{ $spotifyURL := printf "https://open.spotify.com/embed/track/%s" $link }}
-  <a class="musiclink" href="{{ $spotifyURL }}" target="_blank">{{ $title }}</a>
+  {{ $spotifyURL := printf "https://open.spotify.com/track/%s" $link }}
+  {{ $embedURL   := printf "https://open.spotify.com/embed/track/%s" $link }}
+  <a class="lightbox-media" media-type="spotify-track" embed-url="{{ $embedURL }}" href="{{ $spotifyURL }}" target="_blank">{{ $title }}</a>
 {{ end }}

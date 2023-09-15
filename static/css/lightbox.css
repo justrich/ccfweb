@@ -29,9 +29,8 @@
 
 #lightbox span {display: none;}
 
-#lightbox .audioWrapperContainer,
-#lightbox .videoWrapperContainer {
-    position: relative; 
+#lightbox .mediaWrapperOuter {
+    position: relative;
     top: 50%;
     left: 50%;
     -ms-transform: translateX(-50%) translateY(-50%);
@@ -40,8 +39,7 @@
     max-width: 900px;
     max-height: 100%;
 }
-#lightbox .audioWrapperContainer .audioWrapper,
-#lightbox .videoWrapperContainer .videoWrapper {
+#lightbox .mediaWrapperOuter .mediaWrapperInner {
     height: 0;
     line-height: 0;
     margin: 0;
@@ -50,8 +48,7 @@
     padding-bottom: 56.333%; /* custom */
     background: black;
 }
-#lightbox .audioWrapper iframe,
-#lightbox .videoWrapper iframe {
+#lightbox .mediaWrapperInner iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -60,54 +57,60 @@
     border: 0;
     display: block;
 }
-/* Spotify specific */
-#lightbox .spotify.audioWrapperContainer {
+/* Youtube videos embedded */
+#lightbox .youtube.mediaWrapperOuter {
     border: 2px solid #47bec7;
     border-radius: 12px;
-    width: 800px;
+    width: 100%;
+    overflow: hidden;
+}
+/* Spotify specific */
+#lightbox .spotify.mediaWrapperOuter {
+    border: 2px solid #47bec7;
+    border-radius: 12px;
+    width: 100%;
     height: 352px;
     overflow: hidden;
     background-color: #1DB954;
 }
-#lightbox .spotify.audioWrapper {
+#lightbox .spotify.mediaWrapperInner {
     width: 100%;
     height: 100%;
     position: relative;
 }
-#lightbox .spotify.audioWrapper iframe {
+#lightbox .spotify.mediaWrapperInner iframe {
     width: 100%;
     height: 100%;
     border: none;
 }
 /* Apple specific */
-#lightbox .apple.audioWrapperContainer {
+#lightbox .apple.mediaWrapperOuter {
     border: 2px solid #47bec7;
     border-radius: 12px;
     width: 100%;
+    height: 175px;
     max-width: 660px;
     overflow: hidden;
-    background-color: #1DB954;
+    background-color: #3f2a5a;
 }
-#lightbox .apple.audioWrapper {
+#lightbox .apple.mediaWrapperInner {
     width: 100%;
     height: 100%;
     position: relative;
 }
-#lightbox .apple.audioWrapper iframe {
+#lightbox .apple.mediaWrapperInner iframe {
     width: 100%;
-    max-width: 660px;
     overflow: hidden;
     border-radius: 10px;
     border: none;
 }
 @media screen and (max-width: 768px) {
-   #lightbox .apple.audioWrapperContainer,
-   #lightbox .spotify.audioWrapperContainer {
-        width: 90%;
-   }
-   #lightbox .apple.audioWrapperContainer {
-       height: 400px;
-   }
+  #lightbox .apple.mediaWrapperOuter {
+    width: 375px;
+  }
+  #lightbox .spotify.mediaWrapperOuter {
+    width: 375px;
+  }
 }
 
 #lightbox #prev, #lightbox #next {height: 50px; line-height: 36px; display: none; margin-top: -25px; position: fixed; top: 50%; padding: 0 15px; cursor: pointer; text-decoration: none; z-index: 99; color: white; font-size: 60px;}
