@@ -4,6 +4,11 @@ function embedIframe(elem) {
     let embedURL = elem.getAttribute('embed-url');
     let mediaType = elem.getAttribute('media-type');
     var subtype = 'default';
+    var sandboxTokens = [
+        'allow-same-origin',
+        'allow-scripts',
+        'allow-top-navigation-by-user-activation'
+    ];
 
     if( ! embedURL ) {
         console.log(elem + " is missing embed-url");
@@ -14,7 +19,6 @@ function embedIframe(elem) {
         return;
     }
     if(mediaType.toLowerCase().includes('apple')){
-        console.log('Apple media');
         subtype = 'apple'
         // Append dark mode modifier to podcast episodes.
         if( mediaType.toLowerCase().includes('podcast-episode') ) {
@@ -22,23 +26,24 @@ function embedIframe(elem) {
         }
     }
     if(mediaType.toLowerCase().includes('spotify')){
-        console.log('Spotify media');
         subtype = 'spotify';
+        // "Open in spotify" links in the iFrame want
+        // to open external windows.
+        sandboxTokens.push('allow-popups');
     }
     let iFrame = document.createElement('iframe');
     iFrame.id = mediaType;
     iFrame.className = "embedMedia";
     iFrame.src = embedURL;
-    iFrame.frameBorder = 0
-    iFrame.allowFullscreen = '';
+    iFrame.allowFullscreen = false;
     if(mediaType.toLowerCase().includes('youtube')){
         subtype='youtube';
         iFrame.allow = 'autoplay *; encrypted-media *; clipboard-write; fullscreen';
     } else {
         iFrame.allow = 'autoplay *; encrypted-media *; clipboard-write';
     }
-    iFrame.sandbox = 'allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation';
     iFrame.loading = 'lazy';
+    iFrame.sandbox.add(...sandboxTokens);
 
     let outerDiv = document.createElement('div');
     outerDiv.className = 'mediaWrapperOuter ' + subtype;
